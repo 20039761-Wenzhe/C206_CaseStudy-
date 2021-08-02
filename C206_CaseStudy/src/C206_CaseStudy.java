@@ -51,11 +51,15 @@ public class C206_CaseStudy {
 			System.out.println("5. Quit");
 		}
 		private static void carMenu() {
+			//jasmine write code here
 	}
 		private static void feedbackMenu() {
+			//wenzhe write code here
 	}
 		private static void accountMenu() {
+			//miguel write code here
 	}
 		private static void appMenu() {
+			//wenjie write code here
 	}
 	}
