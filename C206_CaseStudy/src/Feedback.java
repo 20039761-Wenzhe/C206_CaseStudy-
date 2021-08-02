@@ -9,25 +9,14 @@
 
 public class Feedback {
 	private int feedId;
-	private String sat;
 	private String issue;
 	private String status;
 	
-	public Feedback(int feedId, String sat, String issue, String status) {
+	public Feedback(int feedId, String issue, String status) {
 		this.feedId = feedId;
-		this.sat = sat;
 		this.issue = issue;
 		this.status = status;
 	}
-
-	public String getSat() {
-		return sat;
-	}
-
-	public void setSat(String sat) {
-		this.sat = sat;
-	}
-
 	public String getIssue() {
 		return issue;
 	}
