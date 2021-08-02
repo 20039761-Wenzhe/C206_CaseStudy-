@@ -72,13 +72,20 @@ public class C206_CaseStudy {
 			}
 			System.out.println(output);
 		}
-		if(input == 1) {
+		if(input == 2) {
 			String issue = Helper.readString("Enter Issue > ");
 			String status = Helper.readString("Enter Status > ");
 			String name = Helper.readString("Name > ");
+			feedbackList.add(new Feedback(issue, status, name));
+			System.out.println("New feedback added!");
+		}
+		if(input == 3) {
+			int number = Helper.readInt("Enter feedback no. to delete > ");
+			feedbackList.remove(number - 1);
+			System.out.println("Feedback " + number + " removed");
+			
 		}
 	}
-
 	private static void accountMenu() {
 		// miguel write code here
 	}
