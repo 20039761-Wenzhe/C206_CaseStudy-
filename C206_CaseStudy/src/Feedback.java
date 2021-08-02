@@ -8,12 +8,12 @@
  */
 
 public class Feedback {
-	private String feedId;
+	private int feedId;
 	private String sat;
 	private String issue;
 	private String status;
 	
-	public Feedback(String feedId, String sat, String issue, String status) {
+	public Feedback(int feedId, String sat, String issue, String status) {
 		this.feedId = feedId;
 		this.sat = sat;
 		this.issue = issue;
@@ -44,11 +44,11 @@ public class Feedback {
 		this.status = status;
 	}
 
-	public String getFeedId() {
+	public int getFeedId() {
 		return feedId;
 	}
 
-	public void setFeedId(String feedId) {
+	public void setFeedId(int feedId) {
 		this.feedId = feedId;
 	}
 }

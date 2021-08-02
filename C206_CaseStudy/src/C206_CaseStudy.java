@@ -7,6 +7,8 @@ public class C206_CaseStudy {
 		ArrayList<Feedback> feedbackList = new ArrayList<Feedback>();
 		ArrayList<Account> accountList = new ArrayList<Account>();
 		ArrayList<Appointment> appList = new ArrayList<Appointment>();
+		
+		carList.add(new Car())
 
 	}
 

@@ -9,19 +9,19 @@ import java.time.LocalDate;
  */
 
 public class Appointment {
-	private String appId;
+	private int appId;
 	private String apName;
 	private LocalDate time;
 	
-	public Appointment(String appId, String apName, LocalDate time) {
+	public Appointment(int appId, String apName, LocalDate time) {
 		this.apName = apName;
 		this.appId = appId;
 		this.time = time;
 	}
-	public String getAppId() {
+	public int getAppId() {
 		return appId;
 	}
-	public void setAppId(String appId) {
+	public void setAppId(int appId) {
 		this.appId = appId;
 	}
 	public LocalDate getTime() {

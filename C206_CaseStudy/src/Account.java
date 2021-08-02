@@ -8,21 +8,21 @@
  */
 
 public class Account {
-	private String accId;
+	private int accId;
 	private String name;
 	private int mobile;
 	
-	public Account(String accId, String name, int mobile) {
+	public Account(int accId, String name, int mobile) {
 		this.accId = accId;
 		this.name = name;
 		this.mobile = mobile;
 	}
 
-	public String getAccId() {
+	public int getAccId() {
 		return accId;
 	}
 
-	public void setAccId(String accId) {
+	public void setAccId(int accId) {
 		this.accId = accId;
 	}
 
