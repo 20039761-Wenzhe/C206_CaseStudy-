@@ -9,20 +9,12 @@ import java.time.LocalDate;
  */
 
 public class Appointment {
-	private int appId;
 	private String apName;
 	private String time;
 	
-	public Appointment(int appId, String apName, String time) {
+	public Appointment(String apName, String time) {
 		this.apName = apName;
-		this.appId = appId;
 		this.time = time;
-	}
-	public int getAppId() {
-		return appId;
-	}
-	public void setAppId(int appId) {
-		this.appId = appId;
 	}
 	public String getTime() {
 		return time;

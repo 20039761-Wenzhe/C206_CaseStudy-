@@ -8,16 +8,16 @@ public class C206_CaseStudy {
 		ArrayList<Account> accountList = new ArrayList<Account>();
 		ArrayList<Appointment> appList = new ArrayList<Appointment>();
 
-		carList.add(new Car(1, "Traxxas Rustler", "Blue", 79));
-		carList.add(new Car(2, "Arrma Typhon", "Red", 68));
+		carList.add(new Car("Traxxas Rustler", "Blue", 79));
+		carList.add(new Car("Arrma Typhon", "Red", 68));
 		feedbackList.add(new Feedback("Cashback not given yet", "Pending", "Zhou Ye"));
 		feedbackList.add(new Feedback("Wrong amount charged for the Car", "Pending", "Jackey Tan"));
-		accountList.add(new Account(1, "Shy Chan", 83339188));
-		accountList.add(new Account(2, "Shirley Moh", 84449111));
-		accountList.add(new Account(3, "Jackey Tan", 83339188));
-		accountList.add(new Account(4, "Zhou Ye", 92349988));
-		appList.add(new Appointment(1, "Shy Chan", "04/09/21-2.45pm"));
-		appList.add(new Appointment(2, "Shirley Moh", "10/09/21-4.45pm"));
+		accountList.add(new Account("Shy Chan", 83339188));
+		accountList.add(new Account("Shirley Moh", 84449111));
+		accountList.add(new Account("Jackey Tan", 83339188));
+		accountList.add(new Account("Zhou Ye", 92349988));
+		appList.add(new Appointment("Shy Chan", "04/09/21-2.45pm"));
+		appList.add(new Appointment("Shirley Moh", "10/09/21-4.45pm"));
 
 		int option = 0;
 
