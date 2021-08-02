@@ -10,13 +10,13 @@
 public class Car {
 	private int carId;
 	private String name;
-	private String maxSpeed;
+	private String colour;
 	private int price;
 	
-	public Car(int carId, String name, String maxSpeed, int price) {
+	public Car(int carId, String name, String colour, int price) {
 		this.carId = carId;
 		this.name = name;
-		this.maxSpeed = maxSpeed;
+		this.colour = colour;
 		this.price = price;
 	}
 
@@ -28,12 +28,12 @@ public class Car {
 		this.name = name;
 	}
 
-	public String getMaxSpeed() {
-		return maxSpeed;
+	public String getColour() {
+		return colour;
 	}
 
-	public void setMaxSpeed(String maxSpeed) {
-		this.maxSpeed = maxSpeed;
+	public void setColour(String colour) {
+		this.colour = colour;
 	}
 
 	public int getPrice() {
