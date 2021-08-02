@@ -13,11 +13,11 @@ public class C206_CaseStudy {
 		feedbackList.add(new Feedback("Cashback not given yet", "Pending", "Zhou Ye"));
 		feedbackList.add(new Feedback("Wrong amount charged for the Car", "Pending", "Jackey Tan"));
 		accountList.add(new Account("Shy Chan", 83339188));
-		accountList.add(new Account("Shirley Moh", 84449111));
+		accountList.add(new Account("Jisoo", 84449111));
 		accountList.add(new Account("Jackey Tan", 83339188));
 		accountList.add(new Account("Zhou Ye", 92349988));
 		appList.add(new Appointment("Shy Chan", "04/09/21-2.45pm"));
-		appList.add(new Appointment("Shirley Moh", "10/09/21-4.45pm"));
+		appList.add(new Appointment("Jisoo", "10/09/21-4.45pm"));
 
 		int option = 0;
 
@@ -83,7 +83,6 @@ public class C206_CaseStudy {
 			int number = Helper.readInt("Enter feedback no. to delete > ");
 			feedbackList.remove(number - 1);
 			System.out.println("Feedback " + number + " removed");
-			
 		}
 	}
 	private static void accountMenu() {
