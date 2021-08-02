@@ -8,11 +8,13 @@
  */
 
 public class Car {
+	private String carId;
 	private String name;
 	private String maxSpeed;
 	private int price;
 	
-	public Car(String name, String maxSpeed, int price) {
+	public Car(String carId, String name, String maxSpeed, int price) {
+		this.carId = carId;
 		this.name = name;
 		this.maxSpeed = maxSpeed;
 		this.price = price;
@@ -41,5 +43,14 @@ public class Car {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+
+	public String getCarId() {
+		return carId;
+	}
+
+	public void setCarId(String carId) {
+		this.carId = carId;
+	}
+	
 
 }

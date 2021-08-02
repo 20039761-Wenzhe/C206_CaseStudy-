@@ -8,5 +8,37 @@
  */
 
 public class Account {
+	private String accId;
+	private String name;
+	private int mobile;
+	
+	public Account(String accId, String name, int mobile) {
+		this.accId = accId;
+		this.name = name;
+		this.mobile = mobile;
+	}
 
+	public String getAccId() {
+		return accId;
+	}
+
+	public void setAccId(String accId) {
+		this.accId = accId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(int mobile) {
+		this.mobile = mobile;
+	}
 }

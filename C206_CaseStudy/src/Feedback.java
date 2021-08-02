@@ -8,11 +8,13 @@
  */
 
 public class Feedback {
+	private String feedId;
 	private String sat;
 	private String issue;
 	private String status;
 	
-	public Feedback(String sat, String issue, String status) {
+	public Feedback(String feedId, String sat, String issue, String status) {
+		this.feedId = feedId;
 		this.sat = sat;
 		this.issue = issue;
 		this.status = status;
@@ -41,5 +43,12 @@ public class Feedback {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
+
+	public String getFeedId() {
+		return feedId;
+	}
+
+	public void setFeedId(String feedId) {
+		this.feedId = feedId;
+	}
 }
