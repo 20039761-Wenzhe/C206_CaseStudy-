@@ -10,8 +10,8 @@ public class C206_CaseStudy {
 
 		carList.add(new Car(1, "Traxxas Rustler", "Blue", 79));
 		carList.add(new Car(2, "Arrma Typhon", "Red", 68));
-		feedbackList.add(new Feedback(1, "Cashback not given yet", "Pending"));
-		feedbackList.add(new Feedback(2, "Wrong amount charged for the Car", "Pending"));
+		feedbackList.add(new Feedback("Cashback not given yet", "Pending", "Zhou Ye"));
+		feedbackList.add(new Feedback("Wrong amount charged for the Car", "Pending", "Jackey Tan"));
 		accountList.add(new Account(1, "Shy Chan", 83339188));
 		accountList.add(new Account(2, "Shirley Moh", 84449111));
 		accountList.add(new Account(3, "Jackey Tan", 83339188));
@@ -61,14 +61,21 @@ public class C206_CaseStudy {
 		System.out.println("3. Delete feedback");
 		int input = Helper.readInt("Enter an option > ");
 		
-		String output = String.format("%-10s %-35s %-15s\n", "No.", "Issue", "Status");
+		String output = String.format("%-10s %-35s %-10s %-10s\n", "No.", "Issue", "Status", "Name");
 
 		if (input == 1) {
+			int counter = 0;
 			for (int i = 0; i < feedbackList.size(); i++) {
-				output += String.format("%-10d %-35s %-15s\n", feedbackList.get(i).getFeedId(), feedbackList.get(i).getIssue(), feedbackList.get(i).getStatus());
+				counter = counter +1;
+				output += String.format("%-10d %-35s %-10s %-10s\n", counter,feedbackList.get(i).getIssue(), feedbackList.get(i).getStatus(), feedbackList.get(i).getName());
 				
 			}
 			System.out.println(output);
+		}
+		if(input == 1) {
+			String issue = Helper.readString("Enter Issue > ");
+			String status = Helper.readString("Enter Status > ");
+			String name = Helper.readString("Name > ");
 		}
 	}
 

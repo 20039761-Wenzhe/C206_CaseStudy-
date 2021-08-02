@@ -8,14 +8,14 @@
  */
 
 public class Feedback {
-	private int feedId;
 	private String issue;
 	private String status;
-	
-	public Feedback(int feedId, String issue, String status) {
-		this.feedId = feedId;
+	private String name;
+
+	public Feedback(String issue, String status, String name) {
 		this.issue = issue;
 		this.status = status;
+		this.name = name;
 	}
 	public String getIssue() {
 		return issue;
@@ -32,12 +32,10 @@ public class Feedback {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
-	public int getFeedId() {
-		return feedId;
+	public String getName() {
+		return name;
 	}
-
-	public void setFeedId(int feedId) {
-		this.feedId = feedId;
+	public void setName(String name) {
+		this.name = name;
 	}
 }
