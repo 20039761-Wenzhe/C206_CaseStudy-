@@ -67,8 +67,8 @@ public class C206_CaseStudy {
 		System.out.println("3. Delete");
 		int input = Helper.readInt("Enter an option > ");
 		
-		String output = String.format("%-10s %-25s %-10s %-10s\n", "No.", "Name", "Issue", "Status");
-		String output1 = String.format("%-5s %-15s %-15s\n", "No. ", "Name", "Feedback");
+		String output = String.format("%-5s %-15s %-35s %-10s\n", "No.", "Name", "Issue", "Status");
+		String output1 = String.format("%-10s %-10s %-15s\n", "No. ", "Name", "Feedback");
 		int counter = 0;
 
 		if (input == 1) {
@@ -76,16 +76,16 @@ public class C206_CaseStudy {
 			System.out.println("2. View Feedback");
 			int input1 = Helper.readInt("Enter an option > ");
 			if (input1 == 1) {
-				counter = counter +1;
 				for(int i =0; i < issueList.size(); i++) {
-				output += String.format("%-10d %-25s %-10s %-10s\n", counter, issueList.get(i).getName(), issueList.get(i).getIssue(), issueList.get(i).getStatus());	
+					counter = counter +1;
+				output += String.format("%-5d %-15s %-35s %-10s\n", counter, issueList.get(i).getName(), issueList.get(i).getIssue(), issueList.get(i).getStatus());	
 			}
 			System.out.println(output);
 		}
 			if(input1 == 2) {
 				for(int i =0; i < feedbackList.size(); i++) {
 				counter = counter +1;
-				output1 += String.format("%-5d %-15s %-15s\n", counter,feedbackList.get(i).getName(), feedbackList.get(i).getFeedback());	
+				output1 += String.format("%-10d %-10s %-15s\n", counter,feedbackList.get(i).getName(), feedbackList.get(i).getFeedback());	
 				}
 				System.out.println(output1);
 			}
@@ -111,18 +111,17 @@ public class C206_CaseStudy {
 		
 		}
 		if (input == 3) {
-			System.out.println(feedbackList.get(1));
 			System.out.println("1. Delete Issue");
 			System.out.println("2. Delete Feedback");
 			int input1 = Helper.readInt("Enter an option > ");
 			
-			if(input == 1) {
+			if(input1 == 1) {
 				int number = Helper.readInt("Enter issue no. to delete > ");
-				feedbackList.remove(number - 1);
-				System.out.println("Feedback " + number + " removed");
+				issueList.remove(number - 1);
+				System.out.println("Issue " + number + " removed");
 			}
 			if (input1 == 2) {
-			int number = Helper.readInt("Enter Feedback no. to delete > ");
+			int number = Helper.readInt("Enter feedback no. to delete > ");
 			feedbackList.remove(number - 1);
 			System.out.println("Feedback " + number + " removed");
 		}
