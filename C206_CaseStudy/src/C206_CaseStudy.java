@@ -6,14 +6,15 @@ public class C206_CaseStudy {
 
 	public static void main(String[] args) {
 		ArrayList<Car> carList = new ArrayList<Car>();
-		ArrayList<FeedName> feedbackList = new ArrayList<FeedName>();
+		ArrayList<Feedback> feedbackList = new ArrayList<Feedback>();
+		ArrayList<Issue> issueList = new ArrayList<Issue>();
 		ArrayList<Account> accountList = new ArrayList<Account>();
 		ArrayList<Appointment> appList = new ArrayList<Appointment>();
 
 		carList.add(new Car("Traxxas Rustler", "Blue", 79));
 		carList.add(new Car("Arrma Typhon", "Red", 68));
-		feedbackList.add(new Issue("Zhou Ye", "Cashback not given yet", "Pending"));
-		feedbackList.add(new Issue("Jackey Tan", "Wrong amount charged for the Car", "Solving"));
+		issueList.add(new Issue("Zhou Ye", "Cashback not given yet", "Pending"));
+		issueList.add(new Issue("Jackey Tan", "Wrong amount charged for the Car", "Solving"));
 		feedbackList.add(new Feedback("Jisoo", "Good customer service"));
 		feedbackList.add(new Feedback("Shy Chan", "Items are overpriced"));
 		accountList.add(new Account("Shy Chan", 83339188));
@@ -32,7 +33,7 @@ public class C206_CaseStudy {
 			if (option == 1) {
 				carMenu();
 			} else if (option == 2) {
-				feedbackMenu(feedbackList);
+				feedbackMenu(feedbackList, issueList);
 			} else if (option == 3) {
 				accountMenu();
 			} else if (option == 4) {
@@ -56,17 +57,18 @@ public class C206_CaseStudy {
 
 	private static void carMenu() {
 		// jasmine write code here
+		
 	}
 
-	private static void feedbackMenu(ArrayList<FeedName> feedbackList){
+	private static void feedbackMenu(ArrayList<Feedback> feedbackList, ArrayList<Issue> issueList){
 		// wenzhe write code here
 		System.out.println("1. View");
 		System.out.println("2. Add");
 		System.out.println("3. Delete");
 		int input = Helper.readInt("Enter an option > ");
 		
-		String output = String.format("%-10s %-35s %-10s %-10s\n", "No.", "Issue", "Status", "Name");
-		String output1 = String.format("%-5s %-25s %-20s\n", "No. ", "Feedback", "Name");
+		String output = String.format("%-10s %-25s %-10s %-10s\n", "No.", "Name", "Issue", "Status");
+		String output1 = String.format("%-5s %-15s %-15s\n", "No. ", "Name", "Feedback");
 		int counter = 0;
 
 		if (input == 1) {
@@ -74,20 +76,16 @@ public class C206_CaseStudy {
 			System.out.println("2. View Feedback");
 			int input1 = Helper.readInt("Enter an option > ");
 			if (input1 == 1) {
-			for(FeedName e : feedbackList) 
-				if(e instanceof Issue) {
-					Issue is = (Issue)e;
 				counter = counter +1;
-				output += String.format("%-10d %-35s %-10s %-10s\n", counter, is.getIssue(), is.getStatus(), is.getName());	
+				for(int i =0; i < issueList.size(); i++) {
+				output += String.format("%-10d %-25s %-10s %-10s\n", counter, issueList.get(i).getName(), issueList.get(i).getIssue(), issueList.get(i).getStatus());	
 			}
 			System.out.println(output);
 		}
 			if(input1 == 2) {
-				for(FeedName e : feedbackList) 
-					if(e instanceof Feedback) {
-						Feedback fb = (Feedback)e;
-					counter = counter +1;
-					output1 += String.format("%-5d %-25s %-20s\n", counter,fb.getFeedback(), fb.getName());	
+				for(int i =0; i < feedbackList.size(); i++) {
+				counter = counter +1;
+				output1 += String.format("%-5d %-15s %-15s\n", counter,feedbackList.get(i).getName(), feedbackList.get(i).getFeedback());	
 				}
 				System.out.println(output1);
 			}
@@ -96,11 +94,12 @@ public class C206_CaseStudy {
 			System.out.println("1. Add Issue");
 			System.out.println("2. Add Feedback");
 			int input1 = Helper.readInt("Enter an option > ");
+			
 			if (input1 == 1) {
 				String name = Helper.readString("Name > ");
 				String issue = Helper.readString("Enter Issue > ");
 				String status = Helper.readString("Enter Status > ");
-				feedbackList.add(new Issue(name, issue, status));
+				issueList.add(new Issue(name, issue, status));
 				System.out.println("New Issue added!");
 			}
 			if (input1 == 2) {
@@ -112,14 +111,16 @@ public class C206_CaseStudy {
 		
 		}
 		if (input == 3) {
+			System.out.println(feedbackList.get(1));
 			System.out.println("1. Delete Issue");
 			System.out.println("2. Delete Feedback");
 			int input1 = Helper.readInt("Enter an option > ");
-			if (input1 == 1) {
-			int number = Helper.readInt("Enter Issue no. to delete > ");
-			feedbackList.remove(number - 1);
-			System.out.println("Issue " + number + " removed");
-		}
+			
+			if(input == 1) {
+				int number = Helper.readInt("Enter issue no. to delete > ");
+				feedbackList.remove(number - 1);
+				System.out.println("Feedback " + number + " removed");
+			}
 			if (input1 == 2) {
 			int number = Helper.readInt("Enter Feedback no. to delete > ");
 			feedbackList.remove(number - 1);

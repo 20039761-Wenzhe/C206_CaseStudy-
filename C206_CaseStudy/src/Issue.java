@@ -7,14 +7,23 @@
  * 20039761, 3 Aug 2021 10:16:28 am
  */
 
-public class Issue extends FeedName {
+public class Issue {
+	private String name;
 	private String issue;
 	private String status;
-
+	
 	public Issue(String name, String issue, String status) {
-		super(name);
+		this.name = name;
 		this.issue = issue;
 		this.status = status;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getIssue() {
@@ -32,5 +41,4 @@ public class Issue extends FeedName {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
 }
