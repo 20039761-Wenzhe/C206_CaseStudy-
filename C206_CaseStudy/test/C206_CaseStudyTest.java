@@ -34,6 +34,26 @@ public class C206_CaseStudyTest {
 	@Test
 	private void testViewFeedback() {//wenzhe
 		// Item list is not null, so that can add a new item
+			assertNotNull("Test if there is valid Issue arraylist to add to", feedbackList);
+	}
+	@Test
+	private void testAddIssue() {//wenzhe
+		// Item list is not null, so that can add a new item
+			assertNotNull("Test if there is valid Feedback arraylist to add to", issueList);
+	}
+	@Test
+	private void testAddFeedback() {//wenzhe
+		// Item list is not null, so that can add a new item
+			assertNotNull("Test if there is valid Feedback arraylist to add to", feedbackList);
+	}
+	@Test
+	private void testDeleteIssue() {//wenzhe
+		// Item list is not null, so that can add a new item
+			assertNotNull("Test if there is valid Issue arraylist to add to", issueList);
+	}
+	@Test
+	private void testDeleteFeedback() {//wenzhe
+		// Item list is not null, so that can add a new item
 			assertNotNull("Test if there is valid Feedback arraylist to add to", feedbackList);
 	}
 	@After
