@@ -10,8 +10,8 @@ public class C206_CaseStudy {
 
 		carList.add(new Car("Traxxas Rustler", "Blue", 79));
 		carList.add(new Car("Arrma Typhon", "Red", 68));
-		feedbackList.add(new Feedback("Cashback not given yet", "Pending", "Zhou Ye"));
-		feedbackList.add(new Feedback("Wrong amount charged for the Car", "Pending", "Jackey Tan"));
+		feedbackList.add(new Issue("Cashback not given yet", "Pending", "Zhou Ye"));
+		feedbackList.add(new Issue("Wrong amount charged for the Car", "Pending", "Jackey Tan"));
 		accountList.add(new Account("Shy Chan", 83339188));
 		accountList.add(new Account("Jisoo", 84449111));
 		accountList.add(new Account("Jackey Tan", 83339188));

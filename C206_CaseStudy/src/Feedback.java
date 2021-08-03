@@ -8,34 +8,32 @@
  */
 
 public class Feedback {
-	private String issue;
-	private String status;
+	private String feedback;
 	private String name;
-
-	public Feedback(String issue, String status, String name) {
-		this.issue = issue;
-		this.status = status;
+	
+	public Feedback(String feedback, String name) {
+		this.feedback = feedback;
 		this.name = name;
 	}
-	public String getIssue() {
-		return issue;
+
+	public String getFeedback() {
+		return feedback;
 	}
 
-	public void setIssue(String issue) {
-		this.issue = issue;
+	public void setFeedback(String feedback) {
+		this.feedback = feedback;
 	}
 
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
 }
+
+	
+	
