@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
-import ESEP1.Employee;
-import ESEP1.EntryRecord;
+
 
 public class C206_CaseStudy {
 
@@ -93,6 +92,41 @@ public class C206_CaseStudy {
 				System.out.println(output1);
 			}
 		}
+		if (input == 2) {
+			System.out.println("1. Add Issue");
+			System.out.println("2. Add Feedback");
+			int input1 = Helper.readInt("Enter an option > ");
+			if (input1 == 1) {
+				String name = Helper.readString("Name > ");
+				String issue = Helper.readString("Enter Issue > ");
+				String status = Helper.readString("Enter Status > ");
+				feedbackList.add(new Issue(name, issue, status));
+				System.out.println("New Issue added!");
+			}
+			if (input1 == 2) {
+				String name = Helper.readString("Name > ");
+				String feedback = Helper.readString("Enter feedback > ");
+				feedbackList.add(new Feedback(name, feedback));
+				System.out.println("New feedback added!");
+			}
+		
+		}
+		if (input == 3) {
+			System.out.println("1. Delete Issue");
+			System.out.println("2. Delete Feedback");
+			int input1 = Helper.readInt("Enter an option > ");
+			if (input1 == 1) {
+			int number = Helper.readInt("Enter Issue no. to delete > ");
+			feedbackList.remove(number - 1);
+			System.out.println("Issue " + number + " removed");
+		}
+			if (input1 == 2) {
+			int number = Helper.readInt("Enter Feedback no. to delete > ");
+			feedbackList.remove(number - 1);
+			System.out.println("Feedback " + number + " removed");
+		}
+		}
+		
 	}
 	private static void accountMenu() {
 		// miguel write code here
