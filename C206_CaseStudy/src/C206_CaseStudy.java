@@ -1,17 +1,22 @@
 import java.util.ArrayList;
 
+import ESEP1.Employee;
+import ESEP1.EntryRecord;
+
 public class C206_CaseStudy {
 
 	public static void main(String[] args) {
 		ArrayList<Car> carList = new ArrayList<Car>();
-		ArrayList<Feedback> feedbackList = new ArrayList<Feedback>();
+		ArrayList<FeedName> feedbackList = new ArrayList<FeedName>();
 		ArrayList<Account> accountList = new ArrayList<Account>();
 		ArrayList<Appointment> appList = new ArrayList<Appointment>();
 
 		carList.add(new Car("Traxxas Rustler", "Blue", 79));
 		carList.add(new Car("Arrma Typhon", "Red", 68));
-		feedbackList.add(new Issue("Cashback not given yet", "Pending", "Zhou Ye"));
-		feedbackList.add(new Issue("Wrong amount charged for the Car", "Pending", "Jackey Tan"));
+		feedbackList.add(new Issue("Zhou Ye", "Cashback not given yet", "Pending"));
+		feedbackList.add(new Issue("Jackey Tan", "Wrong amount charged for the Car", "Solving"));
+		feedbackList.add(new Feedback("Jisoo", "Good customer service"));
+		feedbackList.add(new Feedback("Shy Chan", "Items are overpriced"));
 		accountList.add(new Account("Shy Chan", 83339188));
 		accountList.add(new Account("Jisoo", 84449111));
 		accountList.add(new Account("Jackey Tan", 83339188));
@@ -54,35 +59,39 @@ public class C206_CaseStudy {
 		// jasmine write code here
 	}
 
-	private static void feedbackMenu(ArrayList<Feedback> feedbackList){
+	private static void feedbackMenu(ArrayList<FeedName> feedbackList){
 		// wenzhe write code here
-		System.out.println("1. View feedback");
-		System.out.println("2. Add feedback");
-		System.out.println("3. Delete feedback");
+		System.out.println("1. View");
+		System.out.println("2. Add");
+		System.out.println("3. Delete");
 		int input = Helper.readInt("Enter an option > ");
 		
 		String output = String.format("%-10s %-35s %-10s %-10s\n", "No.", "Issue", "Status", "Name");
+		String output1 = String.format("%-5s %-25s %-20s\n", "No. ", "Feedback", "Name");
+		int counter = 0;
 
 		if (input == 1) {
-			int counter = 0;
-			for (int i = 0; i < feedbackList.size(); i++) {
+			System.out.println("1. View Issue");
+			System.out.println("2. View Feedback");
+			int input1 = Helper.readInt("Enter an option > ");
+			if (input1 == 1) {
+			for(FeedName e : feedbackList) 
+				if(e instanceof Issue) {
+					Issue is = (Issue)e;
 				counter = counter +1;
-				output += String.format("%-10d %-35s %-10s %-10s\n", counter,feedbackList.get(i).getIssue(), feedbackList.get(i).getStatus(), feedbackList.get(i).getName());
-				
+				output += String.format("%-10d %-35s %-10s %-10s\n", counter, is.getIssue(), is.getStatus(), is.getName());	
 			}
 			System.out.println(output);
 		}
-		if(input == 2) {
-			String issue = Helper.readString("Enter Issue > ");
-			String status = Helper.readString("Enter Status > ");
-			String name = Helper.readString("Name > ");
-			feedbackList.add(new Feedback(issue, status, name));
-			System.out.println("New feedback added!");
-		}
-		if(input == 3) {
-			int number = Helper.readInt("Enter feedback no. to delete > ");
-			feedbackList.remove(number - 1);
-			System.out.println("Feedback " + number + " removed");
+			if(input1 == 2) {
+				for(FeedName e : feedbackList) 
+					if(e instanceof Feedback) {
+						Feedback fb = (Feedback)e;
+					counter = counter +1;
+					output1 += String.format("%-5d %-25s %-20s\n", counter,fb.getFeedback(), fb.getName());	
+				}
+				System.out.println(output1);
+			}
 		}
 	}
 	private static void accountMenu() {

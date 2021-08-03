@@ -7,13 +7,12 @@
  * 20039761, 2 Aug 2021 5:27:29 pm
  */
 
-public class Feedback {
+public class Feedback extends FeedName{
 	private String feedback;
-	private String name;
-	
-	public Feedback(String feedback, String name) {
+
+	public Feedback(String name, String feedback) {
+		super(name);
 		this.feedback = feedback;
-		this.name = name;
 	}
 
 	public String getFeedback() {
@@ -23,17 +22,8 @@ public class Feedback {
 	public void setFeedback(String feedback) {
 		this.feedback = feedback;
 	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 	
 	
 }
-
 	
 	
