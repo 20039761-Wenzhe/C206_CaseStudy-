@@ -12,6 +12,10 @@ public class C206_CaseStudyTest {
 	
 	private ArrayList<Issue> issueList;
 	private ArrayList<Feedback> feedbackList;
+	
+	public C206_CaseStudyTest() {
+		super();	
+		}
 
 	@Before
 	public void setUp() throws Exception {
@@ -30,7 +34,10 @@ public class C206_CaseStudyTest {
 	public void testViewIssue() {//wenzhe
 		// Item list is not null, so that can add a new item
 			assertNotNull("Test if there is valid Issue arraylist to add to", issueList);
+			
+
 	}
+
 	@Test
 	private void testViewFeedback() {//wenzhe
 		// Item list is not null, so that can add a new item
@@ -40,6 +47,8 @@ public class C206_CaseStudyTest {
 	private void testAddIssue() {//wenzhe
 		// Item list is not null, so that can add a new item
 			assertNotNull("Test if there is valid Feedback arraylist to add to", issueList);
+		
+			C206_CaseStudy.addIssue()
 	}
 	@Test
 	private void testAddFeedback() {//wenzhe

@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 public class C206_CaseStudy {
 
+
 	public static void main(String[] args) {
 		ArrayList<Car> carList = new ArrayList<Car>();
 		ArrayList<Feedback> feedbackList = new ArrayList<Feedback>();
 		ArrayList<Issue> issueList = new ArrayList<Issue>();
 		ArrayList<Account> accountList = new ArrayList<Account>();
 		ArrayList<Appointment> appList = new ArrayList<Appointment>();
-
+		
 		carList.add(new Car("Traxxas Rustler", "Blue", 79));
 		carList.add(new Car("Arrma Typhon", "Red", 68));
 		issueList.add(new Issue("Zhou Ye", "Cashback not given yet", "Pending"));
@@ -164,8 +165,7 @@ public class C206_CaseStudy {
 					counter = counter +1;
 				output += String.format("%-5d %-15s %-35s %-10s\n", counter, issueList.get(i).getName(), issueList.get(i).getIssue(), issueList.get(i).getStatus());
 				System.out.println(output);
-				}
-				
+				}		
 	}
 	private static void viewFeedback(ArrayList<Feedback> feedbackList){
 		// wenzhe write code here
@@ -175,8 +175,7 @@ public class C206_CaseStudy {
 					counter = counter +1;
 					output1 += String.format("%-10d %-10s %-15s\n", counter,feedbackList.get(i).getName(), feedbackList.get(i).getFeedback());
 				System.out.println(output1);
-				}
-				
+				}		
 	}
 	private static void addIssue(ArrayList<Issue> issueList){
 		String name = Helper.readString("Name > ");
