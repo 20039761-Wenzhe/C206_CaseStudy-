@@ -32,10 +32,10 @@ public class C206_CaseStudyTest {
 	@Test
 	public void testViewIssue() {//wenzhe
 		// Item list is not null, so that can add a new item
-			assertNotNull("Test if there is valid Issue arraylist to add to", issueList);
-			//Given an empty list, after adding 1 item, the size of the list is 1
-			C206_CaseStudy.addIssue(issueList, i1);		
-			assertEquals("Test if that Issue arraylist size is 1?", 1, issueList.size());
+		assertNotNull("Test if there is valid Issue arraylist to add to", issueList);
+		//Given an empty list, after adding 1 item, the size of the list is 1
+		C206_CaseStudy.addIssue(issueList, i1);		
+		assertEquals("Test if that Issue arraylist size is 1?", 1, issueList.size());
 		//The issue just added is as same as the first item of the list
 		assertSame("Test that Issue is added same as 1st item of the list?", i1, issueList.get(0));
 		//Add another issue to  test he size of the list is 2?
