@@ -79,10 +79,10 @@ public class C206_CaseStudy {
 					int input1 = Helper.readInt("Enter an option > ");
 					
 					if (input1 == 1) {
-						addIssue(issueList);
+						addIssue(issueList, null);
 					}
 					else if(input1 == 2) {
-						addFeedback(feedbackList);
+						addFeedback(feedbackList, null);
 					}
 				}
 				if(input == 3) {
@@ -91,10 +91,10 @@ public class C206_CaseStudy {
 					int input1 = Helper.readInt("Enter an option > ");
 					
 					if(input1 == 1) {
-						deleteIssue(issueList);
+						deleteIssue(issueList, null);
 					}
 					else if(input1 == 2) {
-						deleteFeedback(feedbackList);
+						deleteFeedback(feedbackList, null);
 					}
 				}
 			}
@@ -150,20 +150,20 @@ public class C206_CaseStudy {
 		System.out.println("5. Quit");
 	}
 
-	private static void viewCar(ArrayList<Car> carList) {
+	public static void viewCar(ArrayList<Car> carList) {
 		// jasmine write code here
 		
 	}
-	private static void addCar(ArrayList<Car> carList) {
+	public static void addCar(ArrayList<Car> carList) {
 		// jasmine write code here
 		
 	}
-	private static void deleteCar(ArrayList<Car> carList) {
+	public static void deleteCar(ArrayList<Car> carList) {
 		// jasmine write code here
 		
 	}
 
-	private static void viewIssue(ArrayList<Issue> issueList){
+	public static void viewIssue(ArrayList<Issue> issueList){
 		// wenzhe write code here
 		String output = String.format("%-5s %-15s %-35s %-10s\n", "No.", "Name", "Issue", "Status");
 		int counter = 0;
@@ -173,7 +173,7 @@ public class C206_CaseStudy {
 				}	
 				System.out.println(output);
 	}
-	private static void viewFeedback(ArrayList<Feedback> feedbackList){
+	public static void viewFeedback(ArrayList<Feedback> feedbackList){
 		// wenzhe write code here
 		String output = String.format("%-10s %-10s %-15s\n", "No. ", "Name", "Feedback");
 		int counter = 0;
@@ -183,30 +183,30 @@ public class C206_CaseStudy {
 				}
 			System.out.println(output);
 	}
-	private static void addIssue(ArrayList<Issue> issueList){
+	public static void addIssue(ArrayList<Issue> issueList, Issue i1){
 		String name = Helper.readString("Name > ");
 		String issue = Helper.readString("Enter Issue > ");
 		String status = Helper.readString("Enter Status > ");
 		issueList.add(new Issue(name, issue, status));
 		System.out.println("New Issue added!");
 	}
-	private static void addFeedback(ArrayList<Feedback> feedbackList){
+	public static void addFeedback(ArrayList<Feedback> feedbackList, Feedback f1){
 		String name = Helper.readString("Name > ");
 		String feedback = Helper.readString("Enter feedback > ");
 		feedbackList.add(new Feedback(name, feedback));
 		System.out.println("New feedback added!");
 	}
-	private static void deleteIssue(ArrayList<Issue> issueList){
+	public static void deleteIssue(ArrayList<Issue> issueList, Issue i1){
 		int number = Helper.readInt("Enter issue no. to delete > ");
 		issueList.remove(number - 1);
 		System.out.println("Issue " + number + " removed");
 	}
-	private static void deleteFeedback(ArrayList<Feedback> feedbackList){
+	public static void deleteFeedback(ArrayList<Feedback> feedbackList, Feedback f1){
 		int number = Helper.readInt("Enter feedback no. to delete > ");
 		feedbackList.remove(number - 1);
 		System.out.println("Feedback " + number + " removed");
 	}
-	private static void viewAccount(ArrayList<Account> accountList) {
+	public static void viewAccount(ArrayList<Account> accountList) {
 		// miguel write code here
 		String output99 = String.format("%-10s %-10d\n", "Name ", "No.");
 		int counter = 0;
@@ -216,7 +216,7 @@ public class C206_CaseStudy {
 				}
 				System.out.println(output99);
 	}
-	private static void addAccount(ArrayList<Account> accountList) {
+	public static void addAccount(ArrayList<Account> accountList) {
 		// miguel write code here
 		
 		String name = Helper.readString("Name > ");
@@ -224,20 +224,19 @@ public class C206_CaseStudy {
 		accountList.add(new Account(name, mobile));
 		System.out.println("New account added!");
 	}
-	private static void deleteAccount(ArrayList<Account> accountList) {
+	public static void deleteAccount(ArrayList<Account> accountList) {
 		// miguel write code here
 		int mobile = Helper.readInt("Enter Account mobile to delete > ");
 		accountList.remove(mobile - 1);
 		System.out.println("Account " + mobile + " removed");
 	}
-
-	private static void viewAppointment(ArrayList<Appointment> appList) {
+	public static void viewAppointment(ArrayList<Appointment> appList) {
 		// wenjie write code here
 	}
-	private static void addAppointment(ArrayList<Appointment> appList) {
+	public static void addAppointment(ArrayList<Appointment> appList) {
 		// wenjie write code here
 	}
-	private static void deleteAppointment(ArrayList<Appointment> appList) {
+	public static void deleteAppointment(ArrayList<Appointment> appList) {
 		// wenjie write code here
 	}
 	
