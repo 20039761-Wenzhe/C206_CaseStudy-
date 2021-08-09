@@ -69,7 +69,7 @@ public class C206_CaseStudy {
 						viewIssue(issueList);
 						
 				}
-					else if(input == 2) {
+					else if(input1 == 2) {
 						viewFeedback(feedbackList);
 					}
 				}
@@ -81,7 +81,7 @@ public class C206_CaseStudy {
 					if (input1 == 1) {
 						addIssue(issueList);
 					}
-					else if(input == 2) {
+					else if(input1 == 2) {
 						addFeedback(feedbackList);
 					}
 				}
@@ -170,18 +170,18 @@ public class C206_CaseStudy {
 				for(int i =0; i < issueList.size(); i++) {
 					counter = counter +1;
 				output += String.format("%-5d %-15s %-35s %-10s\n", counter, issueList.get(i).getName(), issueList.get(i).getIssue(), issueList.get(i).getStatus());
+				}	
 				System.out.println(output);
-				}		
 	}
 	private static void viewFeedback(ArrayList<Feedback> feedbackList){
 		// wenzhe write code here
-		String output1 = String.format("%-10s %-10s %-15s\n", "No. ", "Name", "Feedback");
+		String output = String.format("%-10s %-10s %-15s\n", "No. ", "Name", "Feedback");
 		int counter = 0;
-				for(int i =0; i < feedbackList.size(); i++) {
-					counter = counter +1;
-					output1 += String.format("%-10d %-10s %-15s\n", counter,feedbackList.get(i).getName(), feedbackList.get(i).getFeedback());
-				System.out.println(output1);
-				}		
+			for(int i =0; i < feedbackList.size(); i++) {
+				counter = counter +1;
+				output += String.format("%-10d %-10s %-15s\n", counter,feedbackList.get(i).getName(), feedbackList.get(i).getFeedback());
+				}
+			System.out.println(output);
 	}
 	private static void addIssue(ArrayList<Issue> issueList){
 		String name = Helper.readString("Name > ");
@@ -206,27 +206,18 @@ public class C206_CaseStudy {
 		feedbackList.remove(number - 1);
 		System.out.println("Feedback " + number + " removed");
 	}
-	
-	
-	
-			
 	private static void viewAccount(ArrayList<Account> accountList) {
 		// miguel write code here
-		
-		assertNotNull("Test if there is valid Account arraylist to add to", accountList);
-		
 		String output99 = String.format("%-10s %-10d\n", "Name ", "No.");
 		int counter = 0;
 				for(int i =0; i < accountList.size(); i++) {
 					counter = counter +1;
 					output99 += String.format("%-10s %-10d\n", counter, accountList.get(i).getName(), accountList.get(i).getMobile());
-				System.out.println(output99);
 				}
+				System.out.println(output99);
 	}
 	private static void addAccount(ArrayList<Account> accountList) {
 		// miguel write code here
-		
-		assertNotNull("Test if there is valid Account arraylist to add to", accountList);
 		
 		String name = Helper.readString("Name > ");
 		int mobile = Helper.readInt("Enter mobile number > ");
