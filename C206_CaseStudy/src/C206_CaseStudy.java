@@ -1,4 +1,10 @@
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
+
 import java.util.ArrayList;
+
+import org.junit.Test;
 
 
 
@@ -201,15 +207,37 @@ public class C206_CaseStudy {
 		System.out.println("Feedback " + number + " removed");
 	}
 	
+	
+	
 			
 	private static void viewAccount(ArrayList<Account> accountList) {
 		// miguel write code here
+		
+		assertNotNull("Test if there is valid Account arraylist to add to", accountList);
+		
+		String output99 = String.format("%-10s %-10d\n", "Name ", "No.");
+		int counter = 0;
+				for(int i =0; i < accountList.size(); i++) {
+					counter = counter +1;
+					output99 += String.format("%-10s %-10d\n", counter, accountList.get(i).getName(), accountList.get(i).getMobile());
+				System.out.println(output99);
+				}
 	}
 	private static void addAccount(ArrayList<Account> accountList) {
 		// miguel write code here
+		
+		assertNotNull("Test if there is valid Account arraylist to add to", accountList);
+		
+		String name = Helper.readString("Name > ");
+		int mobile = Helper.readInt("Enter mobile number > ");
+		accountList.add(new Account(name, mobile));
+		System.out.println("New account added!");
 	}
 	private static void deleteAccount(ArrayList<Account> accountList) {
 		// miguel write code here
+		int mobile = Helper.readInt("Enter Account mobile to delete > ");
+		accountList.remove(mobile - 1);
+		System.out.println("Account " + mobile + " removed");
 	}
 
 	private static void viewAppointment(ArrayList<Appointment> appList) {
@@ -221,4 +249,11 @@ public class C206_CaseStudy {
 	private static void deleteAppointment(ArrayList<Appointment> appList) {
 		// wenjie write code here
 	}
+	
+	
+	
+	
+	
+
+	
 }
