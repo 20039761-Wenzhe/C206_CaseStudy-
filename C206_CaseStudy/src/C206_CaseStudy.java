@@ -152,15 +152,28 @@ public class C206_CaseStudy {
 
 	public static void viewCar(ArrayList<Car> carList) {
 		// jasmine write code here
-		
+		String output = String.format("%-5s %-10s %-5s", "Name", "Colour", "Price");
+		int counter =0;
+		for (int i=0; i<carList.size(); i++) {
+			counter = counter + 1;
+			output+= String.format("%-5d %-15s %-35s %-10s\n", counter, carList.get(i).getName(), carList.get(i).getColour(), carList.get(i).getPrice());
+		}
+		System.out.println(output);
 	}
+	
 	public static void addCar(ArrayList<Car> carList) {
 		// jasmine write code here
-		
+		String name = Helper.readString("Name > ");
+		String colour = Helper.readString("Enter Colour > ");
+		int price = Helper.readInt("Enter Price > ");
+		carList.add(new Car(name, colour, price));
+		System.out.println("New Radio Car added!");
 	}
 	public static void deleteCar(ArrayList<Car> carList) {
 		// jasmine write code here
-		
+		int name = Helper.readInt("Enter Name of Radio Car to delete > ");
+		carList.remove(name - 1);
+		System.out.println("Radio Car " + name + " removed.");
 	}
 
 	public static void viewIssue(ArrayList<Issue> issueList){
