@@ -236,7 +236,7 @@ public class C206_CaseStudy {
 		feedbackList.remove(number - 1);
 		System.out.println("Feedback " + number + " removed");
 	}
-	}
+	}aa
 	public static void viewAccount(ArrayList<Account> accountList) {
 		// miguel write code here
 		String output99 = String.format("%-10s %-10d\n", "Name ", "No.");
