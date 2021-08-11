@@ -220,7 +220,7 @@ public class C206_CaseStudy {
 	public static void deleteIssue(ArrayList<Issue> issueList, Issue i1){
 		int number = Helper.readInt("Enter issue no. to delete > ");
 		if(number >= issueList.size()) {
-			System.out.println("issue not found");
+			System.out.println("Issue not found");
 		}
 		else {
 		issueList.remove(number - 1);
@@ -229,8 +229,13 @@ public class C206_CaseStudy {
 	}
 	public static void deleteFeedback(ArrayList<Feedback> feedbackList, Feedback f1){
 		int number = Helper.readInt("Enter feedback no. to delete > ");
+		if(number >= feedbackList.size()) {
+			System.out.println("Feedback not found");
+		}
+		else {
 		feedbackList.remove(number - 1);
 		System.out.println("Feedback " + number + " removed");
+	}
 	}
 	public static void viewAccount(ArrayList<Account> accountList) {
 		// miguel write code here
