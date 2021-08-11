@@ -243,7 +243,7 @@ public class C206_CaseStudy {
 		int counter = 0;
 				for(int i =0; i < accountList.size(); i++) {
 					counter = counter +1;
-					output99 += String.format("%-10s %-10d\n", counter, accountList.get(i).getName(), accountList.get(i).getMobile());
+					output99 += String.format("%-10s %-30s %-10d\n", counter, accountList.get(i).getName(), accountList.get(i).getMobile());
 				}
 				System.out.println(output99);
 	}
