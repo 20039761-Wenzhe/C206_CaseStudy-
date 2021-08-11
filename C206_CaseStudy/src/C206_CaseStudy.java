@@ -3,12 +3,14 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
 
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import org.junit.Test;
 
 
 
 public class C206_CaseStudy {
+	private static final String status_Pattern = "(Pending|Solved)";
 
 
 	public static void main(String[] args) {
@@ -21,7 +23,7 @@ public class C206_CaseStudy {
 		carList.add(new Car("Traxxas Rustler", "Blue", 79));
 		carList.add(new Car("Arrma Typhon", "Red", 68));
 		issueList.add(new Issue("Zhou Ye", "Cashback not given yet", "Pending"));
-		issueList.add(new Issue("Jackey Tan", "Wrong amount charged for the Car", "Solving"));
+		issueList.add(new Issue("Jackey Tan", "Wrong amount charged for the Car", "Solved"));
 		feedbackList.add(new Feedback("Jisoo", "Good customer service"));
 		feedbackList.add(new Feedback("Shy Chan", "Items are overpriced"));
 		accountList.add(new Account("Shy Chan", 83339188));
@@ -200,8 +202,14 @@ public class C206_CaseStudy {
 		String name = Helper.readString("Name > ");
 		String issue = Helper.readString("Enter Issue > ");
 		String status = Helper.readString("Enter Status > ");
+		boolean checkstatus = Pattern.matches(status_Pattern, status);
+		if (checkstatus == true) {
 		issueList.add(new Issue(name, issue, status));
 		System.out.println("New Issue added!");
+		}
+		else {
+			System.out.println("Please enter a valid Status");
+		}
 	}
 	public static void addFeedback(ArrayList<Feedback> feedbackList, Feedback f1){
 		String name = Helper.readString("Name > ");
