@@ -68,38 +68,42 @@ public class C206_CaseStudy {
 					System.out.println("2. View Feedback");
 					int input1 = Helper.readInt("Enter an option > ");
 					if (input1 == 1) {
-						viewIssue(issueList);
+						C206_CaseStudy.viewAllIssue(issueList);
 						
 				}
 					else if(input1 == 2) {
-						viewFeedback(feedbackList);
+						C206_CaseStudy.viewAllFeedback(feedbackList);
 					}
 				}
 				if(input == 2) {
 					System.out.println("1. Add Issue");
 					System.out.println("2. Add Feedback");
 					int input1 = Helper.readInt("Enter an option > ");
-					
 					if (input1 == 1) {
-						addIssue(issueList, null);
+						Issue is = inputIssue();
+						C206_CaseStudy.addIssue(issueList, is);
 					}
-					else if(input1 == 2) {
-						addFeedback(feedbackList, null);
+					if (input1 == 2) {
+						Feedback fb = inputFeedback();
+						C206_CaseStudy.addFeedback(feedbackList, fb);
 					}
 				}
 				if(input == 3) {
 					System.out.println("1. Delete Issue");
 					System.out.println("2. Delete Feedback");
 					int input1 = Helper.readInt("Enter an option > ");
-					
-					if(input1 == 1) {
-						deleteIssue(issueList, null);
+					if (input1 == 1) {
+						int number = Helper.readInt("Enter issue no. to remove > ");
+						C206_CaseStudy.deleteIssue(issueList, number);
 					}
-					else if(input1 == 2) {
-						deleteFeedback(feedbackList, null);
+					if (input1 == 2) {
+						int number = Helper.readInt("Enter feedback no. to remove > ");
+						C206_CaseStudy.deleteFeedback(feedbackList, number);
 					}
 				}
+		
 			}
+	
 			else if (option == 3) {
 				System.out.println("1. View Account");
 				System.out.println("2. Add Account");
@@ -151,7 +155,6 @@ public class C206_CaseStudy {
 		System.out.println("4. DISPLAY Appointment Option Menu ");
 		System.out.println("5. Quit");
 	}
-
 	public static void viewCar(ArrayList<Car> carList) {
 		// jasmine write code here
 		String output = String.format("%-5s %-10s %-5s", "Name", "Colour", "Price");
@@ -177,49 +180,59 @@ public class C206_CaseStudy {
 		carList.remove(name - 1);
 		System.out.println("Radio Car " + name + " removed.");
 	}
-
-	public static void viewIssue(ArrayList<Issue> issueList){
-		// wenzhe write code here
+	public static String retrieveAllIssue(ArrayList<Issue>issueList) {
+		String output = "";
+		int counter = 0;
+		for(int i = 0; i < issueList.size(); i++) {
+			counter = counter + 1;
+			output += String.format("%-5s %-15s %-35s %-10s\n", counter, issueList.get(i).getName(),issueList.get(i).getIssue(), issueList.get(i).getStatus());
+		}
+		return output;
+	}
+	public static void viewAllIssue(ArrayList<Issue>issueList) {
 		String output = String.format("%-5s %-15s %-35s %-10s\n", "No.", "Name", "Issue", "Status");
-		int counter = 0;
-				for(int i =0; i < issueList.size(); i++) {
-					counter = counter +1;
-				output += String.format("%-5d %-15s %-35s %-10s\n", counter, issueList.get(i).getName(), issueList.get(i).getIssue(), issueList.get(i).getStatus());
-				}	
-				System.out.println(output);
+		output += retrieveAllIssue(issueList);
+		System.out.println(output);
 	}
-	public static void viewFeedback(ArrayList<Feedback> feedbackList){
-		// wenzhe write code here
+	public static String retrieveAllFeedback(ArrayList<Feedback>feedbackList) {
+		String output = "";
+		int counter = 0;
+		for(int i = 0; i < feedbackList.size(); i++) {
+			counter = counter + 1;
+			output += String.format("%-10d %-10s %-15s\n", counter,feedbackList.get(i).getName(), feedbackList.get(i).getFeedback());
+		}
+		return output;
+	}
+	public static void viewAllFeedback(ArrayList<Feedback>feedbackList) {
 		String output = String.format("%-10s %-10s %-15s\n", "No. ", "Name", "Feedback");
-		int counter = 0;
-			for(int i =0; i < feedbackList.size(); i++) {
-				counter = counter +1;
-				output += String.format("%-10d %-10s %-15s\n", counter,feedbackList.get(i).getName(), feedbackList.get(i).getFeedback());
-				}
-			System.out.println(output);
+		output += retrieveAllFeedback(feedbackList);
+		System.out.println(output);
 	}
-	public static void addIssue(ArrayList<Issue> issueList, Issue i1){
+	public static Issue inputIssue() {
 		String name = Helper.readString("Name > ");
 		String issue = Helper.readString("Enter Issue > ");
 		String status = Helper.readString("Enter Status > ");
-		boolean checkstatus = Pattern.matches(status_Pattern, status);
-		if (checkstatus == true) {
-		issueList.add(new Issue(name, issue, status));
-		System.out.println("New Issue added!");
-		}
-		else {
-			System.out.println("Please enter a valid Status");
-		}
+		
+		Issue is = new Issue(name, issue, status);
+		return is;
 	}
-	public static void addFeedback(ArrayList<Feedback> feedbackList, Feedback f1){
+	public static void addIssue(ArrayList<Issue> issueList, Issue is) {
+		issueList.add(is);
+		System.out.println("Issue added");
+	}
+	public static Feedback inputFeedback() {
 		String name = Helper.readString("Name > ");
 		String feedback = Helper.readString("Enter feedback > ");
-		feedbackList.add(new Feedback(name, feedback));
-		System.out.println("New feedback added!");
+		
+		Feedback fb = new Feedback(name, feedback);
+		return fb;
 	}
-	public static void deleteIssue(ArrayList<Issue> issueList, Issue i1){
-		int number = Helper.readInt("Enter issue no. to delete > ");
-		if(number >= issueList.size()) {
+	public static void addFeedback(ArrayList<Feedback> feedbackList, Feedback fb) {
+		feedbackList.add(fb);
+		System.out.println("Feedback added");
+	}
+	public static void deleteIssue(ArrayList<Issue>issueList, int number) {
+		if(number > issueList.size()) {
 			System.out.println("Issue not found");
 		}
 		else {
@@ -227,15 +240,14 @@ public class C206_CaseStudy {
 		System.out.println("Issue " + number + " removed");
 		}
 	}
-	public static void deleteFeedback(ArrayList<Feedback> feedbackList, Feedback f1){
-		int number = Helper.readInt("Enter feedback no. to delete > ");
-		if(number >= feedbackList.size()) {
+	public static void deleteFeedback(ArrayList<Feedback>feedbackList, int number) {
+		if(number > feedbackList.size()) {
 			System.out.println("Feedback not found");
 		}
 		else {
 		feedbackList.remove(number - 1);
 		System.out.println("Feedback " + number + " removed");
-	}
+		}
 	}
 	public static void viewAccount(ArrayList<Account> accountList) {
 		// miguel write code here
