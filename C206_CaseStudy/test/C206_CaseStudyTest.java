@@ -109,6 +109,15 @@ public class C206_CaseStudyTest {
 		assertEquals("Check that ViewAllFeedbackList has the same output as retrieved from the arraylist", testOutput, allFeedback);
 		
 	}
+	@Test
+	public void testDeleteIssue(int number) {
+		// Test if Issue list is not null but empty, so that can add a new Issue
+		assertNotNull("Test if there is valid Issue arraylist to retrieve from", issueList);
+		// Add 1 issue and remove it, check that size is still 0
+		C206_CaseStudy.addIssue(issueList, i1);	
+		C206_CaseStudy.deleteIssue(issueList, number);
+		assertEquals("Test if that Issue arraylist size is 0?", 0, issueList.size());
+	}
 	
 	@After
 	public void tearDown() throws Exception {

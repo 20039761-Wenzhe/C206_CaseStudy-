@@ -93,7 +93,7 @@ public class C206_CaseStudy {
 					System.out.println("2. Delete Feedback");
 					int input1 = Helper.readInt("Enter an option > ");
 					if (input1 == 1) {
-						int number = Helper.readInt("Enter issue no. to remove > ");
+	
 						C206_CaseStudy.deleteIssue(issueList, number);
 					}
 					if (input1 == 2) {
@@ -231,14 +231,25 @@ public class C206_CaseStudy {
 		feedbackList.add(fb);
 		System.out.println("Feedback added");
 	}
-	public static void deleteIssue(ArrayList<Issue>issueList, int number) {
-		if(number > issueList.size()) {
-			System.out.println("Issue not found");
+	public static String InputDeleteIssue() {
+	String name = Helper.readString("Enter name of isssue to remove > ");
+		return name;
+	}
+	public static void deleteIssue(ArrayList<Issue>issueList, Issue name) {
+	for(int i = 0; i < issueList.size(); i++) {
+		Issue issuename = issueList.get(i);
+		if (name.equals(issuename.getName())) {
+			String output =  "";
+			output += String.format("%-15s %-35s %-10s\n", issuename.getName(),
+					issuename.getIssue(), issuename.getStatus());
+			System.out.println(output);
+			String option = Helper.readString("Do you wish to delete this issue? (Y/N)> ");
+			if (option.equalsIgnoreCase("y")) {
+				issueList.remove(name);
+				System.out.println("Issue has been successfully removed!");
+			
 		}
-		else {
-		issueList.remove(number - 1);
-		System.out.println("Issue " + number + " removed");
-		}
+	}
 	}
 	public static void deleteFeedback(ArrayList<Feedback>feedbackList, int number) {
 		if(number > feedbackList.size()) {
