@@ -44,7 +44,6 @@ public class C206_CaseStudy {
 					System.out.println("1. View Car");
 					System.out.println("2. Add Car");
 					System.out.println("3. Delete Car");
-					System.out.println("4. Exit");
 					Helper.line(40, "-");
 
 					int input = Helper.readInt("Enter an option > ");
