@@ -179,6 +179,9 @@ public class C206_CaseStudyTest {
 		i2 = null;
 		f1 = null;
 		f2 = null;
+		c1 = null;
+		c2 = null;
+		carList = null;
 		issueList = null;
 		feedbackList = null;
 	}
