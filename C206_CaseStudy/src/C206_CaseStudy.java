@@ -51,7 +51,7 @@ public class C206_CaseStudy {
 			if(input == 2) {
 				addCar(carList);
 			}
-			if(input == 2) {
+			if(input == 3) {
 				deleteCar(carList);
 			}
 			
@@ -116,7 +116,7 @@ public class C206_CaseStudy {
 			if(input == 2) {
 				addAccount(accountList);
 			}
-			if(input == 2) {
+			if(input == 3) {
 				deleteAccount(accountList);
 			}
 		}
@@ -132,7 +132,7 @@ public class C206_CaseStudy {
 			if(input == 2) {
 				addAppointment(appList);
 			}
-			if(input == 2) {
+			if(input == 3) {
 				deleteAppointment(appList);
 			}
 		}
