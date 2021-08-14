@@ -8,30 +8,50 @@
  */
 
 public class Feedback{
-	private String name;
-	private String feedback;
-	
-	public Feedback(String name, String feedback) {
-		this.name = name;
-		this.feedback = feedback;
-	}
+    private int id;
+    private String name;
+    private String feedback;
+    private String reply;
+    
+    public Feedback(int id, String name, String feedback, String reply) {
+        this.id = id;
+        this.name = name;
+        this.feedback = feedback;
+        this.reply = reply;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getFeedback() {
-		return feedback;
-	}
+    public String getFeedback() {
+        return feedback;
+    }
 
-	public void setFeedback(String feedback) {
-		this.feedback = feedback;
-	}
-	
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
+    }
+
+    public String getReply() {
+        return reply;
+    }
+
+    public void setReply(String reply) {
+        this.reply = reply;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
 }
-	
 	

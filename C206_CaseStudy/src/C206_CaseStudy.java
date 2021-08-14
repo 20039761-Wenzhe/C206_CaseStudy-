@@ -22,10 +22,10 @@ public class C206_CaseStudy {
 		
 		carList.add(new Car("Traxxas Rustler", "Blue", 79));
 		carList.add(new Car("Arrma Typhon", "Red", 68));
-		issueList.add(new Issue("Zhou Ye", "Cashback not given yet", "Pending"));
-		issueList.add(new Issue("Jackey Tan", "Wrong amount charged for the Car", "Solved"));
-		feedbackList.add(new Feedback("Jisoo", "Good customer service"));
-		feedbackList.add(new Feedback("Shy Chan", "Items are overpriced"));
+		issueList.add(new Issue(1, "Zhou Ye", "Cashback not given yet", "Pending"));
+		issueList.add(new Issue(2, "Jackey Tan", "Wrong amount charged for the Car", "Solved"));
+		feedbackList.add(new Feedback(1, "Jisoo", "Good customer service", ""));
+		feedbackList.add(new Feedback(2, "Shy Chan", "Items are overpriced", ""));
 		accountList.add(new Account("Shy Chan", 83339188));
 		accountList.add(new Account("Jisoo", 84449111));
 		accountList.add(new Account("Jackey Tan", 83339188));
@@ -56,54 +56,54 @@ public class C206_CaseStudy {
 			}
 			
 			} else if (option == 2) {
-				System.out.println("1. View");
-				System.out.println("2. Add");
-				System.out.println("3. Delete");
-				
-				int input = Helper.readInt("Enter an option > ");
-				
-				
-				if(input == 1) {
-					System.out.println("1. View Issue");
-					System.out.println("2. View Feedback");
-					int input1 = Helper.readInt("Enter an option > ");
-					if (input1 == 1) {
-						C206_CaseStudy.viewAllIssue(issueList);
-						
-				}
-					else if(input1 == 2) {
-						C206_CaseStudy.viewAllFeedback(feedbackList);
-					}
-				}
-				if(input == 2) {
-					System.out.println("1. Add Issue");
-					System.out.println("2. Add Feedback");
-					int input1 = Helper.readInt("Enter an option > ");
-					if (input1 == 1) {
-						Issue is = inputIssue();
-						C206_CaseStudy.addIssue(issueList, is);
-					}
-					if (input1 == 2) {
-						Feedback fb = inputFeedback();
-						C206_CaseStudy.addFeedback(feedbackList, fb);
-					}
-				}
-				if(input == 3) {
-					System.out.println("1. Delete Issue");
-					System.out.println("2. Delete Feedback");
-					int input1 = Helper.readInt("Enter an option > ");
-					if (input1 == 1) {
-	
-						C206_CaseStudy.deleteIssue(issueList, number);
-					}
-					if (input1 == 2) {
-						int number = Helper.readInt("Enter feedback no. to remove > ");
-						C206_CaseStudy.deleteFeedback(feedbackList, number);
-					}
-				}
-		
-			}
-	
+                System.out.println("1. View");
+                System.out.println("2. Add");
+                System.out.println("3. Delete");
+                
+                int input = Helper.readInt("Enter an option > ");
+                
+                
+                if(input == 1) {
+                    System.out.println("1. View Issue");
+                    System.out.println("2. View Feedback");
+                    int input1 = Helper.readInt("Enter an option > ");
+                    if (input1 == 1) {
+                        C206_CaseStudy.viewAllIssue(issueList);
+                        
+                }
+                    else if(input1 == 2) {
+                        C206_CaseStudy.viewAllFeedback(feedbackList);
+                    }
+                }
+                if(input == 2) {
+                    System.out.println("1. Add Issue");
+                    System.out.println("2. Add Feedback");
+                    int input1 = Helper.readInt("Enter an option > ");
+                    if (input1 == 1) {
+                        Issue is = inputIssue();
+                        C206_CaseStudy.addIssue(issueList, is);
+                    }
+                    if (input1 == 2) {
+                        Feedback fb = inputFeedback();
+                        C206_CaseStudy.addFeedback(feedbackList, fb);
+                    }
+                }
+                if(input == 3) {
+                    System.out.println("1. Delete Issue");
+                    System.out.println("2. Delete Feedback");
+                    int input1 = Helper.readInt("Enter an option > ");
+                    if (input1 == 1) {
+                        int id = inputDelete(issueList);
+                        C206_CaseStudy.deleteIssue(issueList, id);
+                    }
+                    if (input1 == 2) {
+                        int id = inputDeleteF(feedbackList);
+                        C206_CaseStudy.deleteFeedback(feedbackList, id);
+                    }
+
+                }
+        
+            }
 			else if (option == 3) {
 				System.out.println("1. View Account");
 				System.out.println("2. Add Account");
@@ -182,10 +182,8 @@ public class C206_CaseStudy {
 	}
 	public static String retrieveAllIssue(ArrayList<Issue>issueList) {
 		String output = "";
-		int counter = 0;
 		for(int i = 0; i < issueList.size(); i++) {
-			counter = counter + 1;
-			output += String.format("%-5s %-15s %-35s %-10s\n", counter, issueList.get(i).getName(),issueList.get(i).getIssue(), issueList.get(i).getStatus());
+			output += String.format("%-5s %-15s %-35s %-10s\n", issueList.get(i).getId(), issueList.get(i).getName(),issueList.get(i).getIssue(), issueList.get(i).getStatus());
 		}
 		return output;
 	}
@@ -196,24 +194,23 @@ public class C206_CaseStudy {
 	}
 	public static String retrieveAllFeedback(ArrayList<Feedback>feedbackList) {
 		String output = "";
-		int counter = 0;
 		for(int i = 0; i < feedbackList.size(); i++) {
-			counter = counter + 1;
-			output += String.format("%-10d %-10s %-15s\n", counter,feedbackList.get(i).getName(), feedbackList.get(i).getFeedback());
+			output += String.format("%-10d %-10s %-15s %-20s\n", feedbackList.get(i).getId(),feedbackList.get(i).getName(), feedbackList.get(i).getFeedback(), feedbackList.get(i).getReply());
 		}
 		return output;
 	}
 	public static void viewAllFeedback(ArrayList<Feedback>feedbackList) {
-		String output = String.format("%-10s %-10s %-15s\n", "No. ", "Name", "Feedback");
+		String output = String.format("%-10s %-10s %-15s %-20s\n", "No. ", "Name", "Feedback", "Reply");
 		output += retrieveAllFeedback(feedbackList);
 		System.out.println(output);
 	}
 	public static Issue inputIssue() {
+		int id = Helper.readInt("Enter issue id > ");
 		String name = Helper.readString("Name > ");
 		String issue = Helper.readString("Enter Issue > ");
 		String status = Helper.readString("Enter Status > ");
 		
-		Issue is = new Issue(name, issue, status);
+		Issue is = new Issue(id, name, issue, status);
 		return is;
 	}
 	public static void addIssue(ArrayList<Issue> issueList, Issue is) {
@@ -221,43 +218,39 @@ public class C206_CaseStudy {
 		System.out.println("Issue added");
 	}
 	public static Feedback inputFeedback() {
+		int id = Helper.readInt("Enter feedback id > ");
 		String name = Helper.readString("Name > ");
 		String feedback = Helper.readString("Enter feedback > ");
 		
-		Feedback fb = new Feedback(name, feedback);
+		Feedback fb = new Feedback(id, name, feedback, "");
 		return fb;
 	}
 	public static void addFeedback(ArrayList<Feedback> feedbackList, Feedback fb) {
 		feedbackList.add(fb);
 		System.out.println("Feedback added");
 	}
-	public static String InputDeleteIssue() {
-	String name = Helper.readString("Enter name of isssue to remove > ");
-		return name;
+	public static int inputDelete(ArrayList<Issue>issueList) {
+		int id = Helper.readInt("Enter Issue No. to delete > ");
+		return id;
 	}
-	public static void deleteIssue(ArrayList<Issue>issueList, Issue name) {
-	for(int i = 0; i < issueList.size(); i++) {
-		Issue issuename = issueList.get(i);
-		if (name.equals(issuename.getName())) {
-			String output =  "";
-			output += String.format("%-15s %-35s %-10s\n", issuename.getName(),
-					issuename.getIssue(), issuename.getStatus());
-			System.out.println(output);
-			String option = Helper.readString("Do you wish to delete this issue? (Y/N)> ");
-			if (option.equalsIgnoreCase("y")) {
-				issueList.remove(name);
-				System.out.println("Issue has been successfully removed!");
-			
+	public static void deleteIssue(ArrayList<Issue>issueList, int id) {
+		for(Issue i : issueList) {
+			if(id == i.getId()) {
+				issueList.remove(i);
+			System.out.println("Issue deleted");
+		}
 		}
 	}
+	public static int inputDeleteF(ArrayList<Feedback>feedbackList) {
+		int id = Helper.readInt("Enter Feedback No. to delete > ");
+		return id;
 	}
-	public static void deleteFeedback(ArrayList<Feedback>feedbackList, int number) {
-		if(number > feedbackList.size()) {
-			System.out.println("Feedback not found");
+	public static void deleteFeedback(ArrayList<Feedback>feedbackList, int id) {
+		for(Feedback f : feedbackList) {
+			if(id == f.getId()) {
+				feedbackList.remove(f);
+			System.out.println("Feedback deleted");
 		}
-		else {
-		feedbackList.remove(number - 1);
-		System.out.println("Feedback " + number + " removed");
 		}
 	}
 	public static void viewAccount(ArrayList<Account> accountList) {
