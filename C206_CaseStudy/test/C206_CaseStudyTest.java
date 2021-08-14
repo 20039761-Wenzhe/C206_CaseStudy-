@@ -77,7 +77,7 @@ public class C206_CaseStudyTest {
 		assertEquals("Check that ViewALlIssue has the same output as retrieved from the arraylist", testOutput, allIssue);
 		
 	}
-	
+	///////////////////////////////////////WENZHE/////////////////////////////////////////////////////////////
 	@Test
 	public void testAddIssue() {
 		// Issue list is not null, so that can add a new Issue
@@ -164,7 +164,7 @@ public class C206_CaseStudyTest {
 		
 	
 	}
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	@After
 	public void tearDown() throws Exception {
