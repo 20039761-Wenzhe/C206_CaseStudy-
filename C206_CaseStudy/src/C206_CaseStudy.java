@@ -160,6 +160,7 @@ public class C206_CaseStudy {
 		System.out.println("4. DISPLAY Appointment Option Menu ");
 		System.out.println("5. Quit");
 	}
+	
 	public static String retrieveAllCar(ArrayList<Car> carList) {
 		// jasmine write code here
 		String output = "";

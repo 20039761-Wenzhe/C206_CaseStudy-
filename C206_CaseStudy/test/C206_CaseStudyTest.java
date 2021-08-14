@@ -71,10 +71,10 @@ public class C206_CaseStudyTest {
 		//test if the expected output string same as the list of issues retrieved from the arraylist
 		allCar= C206_CaseStudy.retrieveAllCar(carList);
 
-		testOutput = String.format("%-5d %-15s %-35s %-10s\n", 1, "Zhou Ye", "Cashback not given yet", "Pending");
-		testOutput += String.format("%-5d %-15s %-35s %-10s\n", 2, "Jackey", "Wrong amount charged for the car", "Solved");
+		testOutput = String.format("%-5d %-20s %-15s %-10s\n", 1,"Traxxas Rustler", "Blue", 79);
+		testOutput += String.format("%-5d %-20s %-15s %-10s\n", 2,"Arrma Typhon", "Red", 68);
 	
-		assertEquals("Check that ViewALlIssue has the same output as retrieved from the arraylist", testOutput, allIssue);
+		assertEquals("Check that ViewCar has the same output as retrieved from the arraylist", testOutput, allCar);
 		
 	}
 	
