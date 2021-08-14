@@ -157,11 +157,11 @@ public class C206_CaseStudy {
 	}
 	public static void viewCar(ArrayList<Car> carList) {
 		// jasmine write code here
-		String output = String.format("%-5s %-10s %-5s", "Name", "Colour", "Price");
+		String output = String.format("%-5s %-20s %-15s %-10s\n", "No", "Name", "Colour", "Price");
 		int counter =0;
 		for (int i=0; i<carList.size(); i++) {
 			counter = counter + 1;
-			output+= String.format("%-5d %-15s %-35s %-10s\n", counter, carList.get(i).getName(), carList.get(i).getColour(), carList.get(i).getPrice());
+			output+= String.format("%-5d %-20s %-15s %-10s\n", counter, carList.get(i).getName(), carList.get(i).getColour(), carList.get(i).getPrice());
 		}
 		System.out.println(output);
 	}
@@ -172,14 +172,22 @@ public class C206_CaseStudy {
 		String colour = Helper.readString("Enter Colour > ");
 		int price = Helper.readInt("Enter Price > ");
 		carList.add(new Car(name, colour, price));
-		System.out.println("New Radio Car added!");
+		System.out.println("New Radio Car Successfully added!");
 	}
 	public static void deleteCar(ArrayList<Car> carList) {
 		// jasmine write code here
-		int name = Helper.readInt("Enter Name of Radio Car to delete > ");
-		carList.remove(name - 1);
-		System.out.println("Radio Car " + name + " removed.");
+		String name = Helper.readString("Enter Name of Radio Car to delete > ");
+		for (Car c : carList) {
+			if(name.equalsIgnoreCase(c.getName())) {
+				carList.remove(c);
+				System.out.println(c.getName()+" Succesfully deleted!");
+			}
+			else{
+				System.out.println("Unable to find Car Named ' "+name+" '.");
+			}
+		}
 	}
+
 	public static String retrieveAllIssue(ArrayList<Issue>issueList) {
 		String output = "";
 		for(int i = 0; i < issueList.size(); i++) {
