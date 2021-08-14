@@ -36,6 +36,8 @@ public class C206_CaseStudyTest {
 		carList = new ArrayList<Car>();
 
 	}
+	
+	///////////////////////////////////////////////JASMINE/////////////////////////////////////////////////////////////
 	@Test
 	public void testAddCar() {
 		// Car list is not null, so that can add a new Issue
@@ -77,7 +79,12 @@ public class C206_CaseStudyTest {
 		assertEquals("Check that ViewCar has the same output as retrieved from the arraylist", testOutput, allCar);
 		
 	}
-	///////////////////////////////////////WENZHE/////////////////////////////////////////////////////////////
+	@Test
+	public void testDeleteCar() {
+		// Test if Car list is not null but empty, so that can add a new Issue
+		assertNotNull("Test if there is valid Car arraylist to retrieve from", carList);
+	}
+	///////////////////////////////////////////////WENZHE/////////////////////////////////////////////////////////////
 	@Test
 	public void testAddIssue() {
 		// Issue list is not null, so that can add a new Issue
