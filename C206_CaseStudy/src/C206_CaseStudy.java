@@ -45,15 +45,17 @@ public class C206_CaseStudy {
 					System.out.println("2. Add Car");
 					System.out.println("3. Delete Car");
 					Helper.line(40, "-");
-
+					
+					
 					int input = Helper.readInt("Enter an option > ");
 					if(input == 1) {
 						C206_CaseStudy.viewCar(carList);
 					}
-					if(input == 2) {
-						C206_CaseStudy.addCar(carList);
+					else if(input == 2) {
+						Car car1 = addCar(carList);
+						carAdded(carList, car1);
 					}
-					if(input == 3) {
+					else if(input == 3) {
 						int ID = deleteInput(carList);
 						C206_CaseStudy.deleteCar(carList, ID);
 					}			
@@ -158,29 +160,45 @@ public class C206_CaseStudy {
 		System.out.println("4. DISPLAY Appointment Option Menu ");
 		System.out.println("5. Quit");
 	}
-	public static void viewCar(ArrayList<Car> carList) {
+	public static String retrieveAllCar(ArrayList<Car> carList) {
 		// jasmine write code here
-		String output = String.format("%-5s %-20s %-15s %-10s\n", "ID", "Name", "Colour", "Price");
+		String output = "";
 		for (int i=0; i<carList.size(); i++) {
 			output+= String.format("%-5d %-20s %-15s %-10s\n", carList.get(i).getID(), carList.get(i).getName(), carList.get(i).getColour(), carList.get(i).getPrice());
 		}
+		return output;
+	}
+	
+	public static void viewCar(ArrayList<Car> carList) {
+		// jasmine write code here
+		String output = String.format("%-5s %-20s %-15s %-10s\n", "ID", "Name", "Colour", "Price");
+		output += retrieveAllCar(carList);
 		System.out.println(output);
 	}
 	
-	public static void addCar(ArrayList<Car> carList) {
+	
+	public static Car addCar(ArrayList<Car> carList) {
 		// jasmine write code here
 		int ID = Helper.readInt("ID >");
 		String name = Helper.readString("Name > ");
 		String colour = Helper.readString("Enter Colour > ");
 		int price = Helper.readInt("Enter Price > ");
-		carList.add(new Car(ID, name, colour, price));
+		Car car1 = new Car(ID, name, colour, price);
+		return car1;
+	}
+	
+	public static void carAdded(ArrayList<Car> carList, Car car1) {
+		//jasmine
+		carList.add(car1);
 		System.out.println("New Radio Car Successfully added!");
 	}
+	
 	public static int deleteInput(ArrayList<Car>carList) {
 		//jasmine 
 		int ID = Helper.readInt("Enter ID of Radio Car to delete > ");
 		return ID;
 	}
+	
 	public static void deleteCar(ArrayList<Car> carList, int ID) {
 		// jasmine write code here
 		for (Car c : carList) {
