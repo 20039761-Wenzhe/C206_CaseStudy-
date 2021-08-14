@@ -8,14 +8,24 @@
  */
 
 public class Car {
+	private int ID;
 	private String name;
 	private String colour;
 	private int price;
 	
-	public Car(String name, String colour, int price) {
+	public Car(int ID, String name, String colour, int price) {
+		this.ID = ID;
 		this.name = name;
 		this.colour = colour;
 		this.price = price;
+	}
+	
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int ID) {
+		this.ID = ID;
 	}
 
 	public String getName() {

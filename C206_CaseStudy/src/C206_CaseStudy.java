@@ -20,8 +20,8 @@ public class C206_CaseStudy {
 		ArrayList<Account> accountList = new ArrayList<Account>();
 		ArrayList<Appointment> appList = new ArrayList<Appointment>();
 		
-		carList.add(new Car("Traxxas Rustler", "Blue", 79));
-		carList.add(new Car("Arrma Typhon", "Red", 68));
+		carList.add(new Car(1,"Traxxas Rustler", "Blue", 79));
+		carList.add(new Car(2,"Arrma Typhon", "Red", 68));
 		issueList.add(new Issue(1, "Zhou Ye", "Cashback not given yet", "Pending"));
 		issueList.add(new Issue(2, "Jackey Tan", "Wrong amount charged for the Car", "Solved"));
 		feedbackList.add(new Feedback(1, "Jisoo", "Good customer service", ""));
@@ -40,20 +40,24 @@ public class C206_CaseStudy {
 			option = Helper.readInt("Enter an option > ");
 
 			if (option == 1) {
-				System.out.println("1. View Car");
-				System.out.println("2. Add Car");
-				System.out.println("3. Delete Car");
-				
-				int input = Helper.readInt("Enter an option > ");
-			if(input == 1) {
-				viewCar(carList);
-			}
-			if(input == 2) {
-				addCar(carList);
-			}
-			if(input == 3) {
-				deleteCar(carList);
-			}
+					Helper.line(40, "-");
+					System.out.println("1. View Car");
+					System.out.println("2. Add Car");
+					System.out.println("3. Delete Car");
+					System.out.println("4. Exit");
+					Helper.line(40, "-");
+
+					int input = Helper.readInt("Enter an option > ");
+					if(input == 1) {
+						C206_CaseStudy.viewCar(carList);
+					}
+					if(input == 2) {
+						C206_CaseStudy.addCar(carList);
+					}
+					if(input == 3) {
+						int ID = deleteInput(carList);
+						C206_CaseStudy.deleteCar(carList, ID);
+					}			
 			
 			} else if (option == 2) {
                 System.out.println("1. View");
@@ -157,33 +161,36 @@ public class C206_CaseStudy {
 	}
 	public static void viewCar(ArrayList<Car> carList) {
 		// jasmine write code here
-		String output = String.format("%-5s %-20s %-15s %-10s\n", "No", "Name", "Colour", "Price");
-		int counter =0;
+		String output = String.format("%-5s %-20s %-15s %-10s\n", "ID", "Name", "Colour", "Price");
 		for (int i=0; i<carList.size(); i++) {
-			counter = counter + 1;
-			output+= String.format("%-5d %-20s %-15s %-10s\n", counter, carList.get(i).getName(), carList.get(i).getColour(), carList.get(i).getPrice());
+			output+= String.format("%-5d %-20s %-15s %-10s\n", carList.get(i).getID(), carList.get(i).getName(), carList.get(i).getColour(), carList.get(i).getPrice());
 		}
 		System.out.println(output);
 	}
 	
 	public static void addCar(ArrayList<Car> carList) {
 		// jasmine write code here
+		int ID = Helper.readInt("ID >");
 		String name = Helper.readString("Name > ");
 		String colour = Helper.readString("Enter Colour > ");
 		int price = Helper.readInt("Enter Price > ");
-		carList.add(new Car(name, colour, price));
+		carList.add(new Car(ID, name, colour, price));
 		System.out.println("New Radio Car Successfully added!");
 	}
-	public static void deleteCar(ArrayList<Car> carList) {
+	public static int deleteInput(ArrayList<Car>carList) {
+		//jasmine 
+		int ID = Helper.readInt("Enter ID of Radio Car to delete > ");
+		return ID;
+	}
+	public static void deleteCar(ArrayList<Car> carList, int ID) {
 		// jasmine write code here
-		String name = Helper.readString("Enter Name of Radio Car to delete > ");
 		for (Car c : carList) {
-			if(name.equalsIgnoreCase(c.getName())) {
+			if(ID==c.getID()) {
 				carList.remove(c);
-				System.out.println(c.getName()+" Succesfully deleted!");
+				System.out.println("Radio Car ID: "+c.getID()+" Succesfully deleted!");
 			}
-			else{
-				System.out.println("Unable to find Car Named ' "+name+" '.");
+			 if (ID!=c.getID()){
+				System.out.println("Unable to find Car with ID: ' "+ID+" '.");
 			}
 		}
 	}
