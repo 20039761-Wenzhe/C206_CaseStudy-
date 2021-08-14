@@ -52,7 +52,7 @@ public class C206_CaseStudy {
                 System.out.println("1. View");
                 System.out.println("2. Add");
                 System.out.println("3. Delete");
-                System.out.println("4. Update");
+                System.out.println("4. Reply to feedback");
                 
                 int input = Helper.readInt("Enter an option > ");
                 
@@ -281,6 +281,9 @@ public class C206_CaseStudy {
     }
 
     public static int inputDeleteF(ArrayList<Feedback> feedbackList) {
+        String output = String.format("%-10s %-10s %-25s %-30s\n", "No. ", "Name", "Feedback", "Reply");
+        output += retrieveAllFeedback(feedbackList);
+        System.out.println(output);
         int id = Helper.readInt("Enter Feedback No. to delete > ");
         return id;
     }
@@ -291,26 +294,31 @@ public class C206_CaseStudy {
             if (id == fb.getId()) {
                 feedbackList.remove(fb);
                 System.out.println("Feedback deleted");
+            } else {
+            	System.out.println("Feedback not found");
             }
         }
     }
 
     public static void replyFeedback(ArrayList<Feedback> feedbackList) {
-        int no = Helper.readInt("Enter feedback no. to reply to > ");
         String output = String.format("%-10s %-10s %-25s %-30s\n", "No. ", "Name", "Feedback", "Reply");
+        output += retrieveAllFeedback(feedbackList);
+        System.out.println(output);
+        int no = Helper.readInt("Enter feedback no. to reply to > ");
+        String output1 = String.format("%-10s %-10s %-25s %-30s\n", "No. ", "Name", "Feedback", "Reply");
         for (int i = 0; i < feedbackList.size(); i++) {
             Feedback fb = feedbackList.get(i);
             if (no == fb.getId()) {
-                output += String.format("%-10d %-10s %-25s %-30s\n", feedbackList.get(i).getId(),
+                output1 += String.format("%-10d %-10s %-25s %-30s\n", feedbackList.get(i).getId(),
                         feedbackList.get(i).getName(), feedbackList.get(i).getFeedback(),
                         feedbackList.get(i).getReply());
-                System.out.println(output);
+                System.out.println(output1);
                 String reply = Helper.readString("Enter reply > ");
                 for (Feedback fr : feedbackList) {
-                    if (no == fr.getId())
+                    if (no == fr.getId()) {
                         fr.setReply(reply);
                     System.out.println("Reply added!");
-
+                    }
                 }
             } else {
                 System.out.println("Feedback ID cannot be found");
@@ -318,6 +326,9 @@ public class C206_CaseStudy {
         }
 
     }
+    
+    
+
 	public static void viewAccount(ArrayList<Account> accountList) {
 		// miguel write code here
 		String output99 = String.format("%-10s %-10d\n", "Name ", "No.");

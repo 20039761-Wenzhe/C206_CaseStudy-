@@ -152,8 +152,8 @@ public class C206_CaseStudyTest {
 		//test if the expected output string same as the list of feedbacks retrieved from the arraylist
 		allFeedback= C206_CaseStudy.retrieveAllFeedback(feedbackList);
 
-		testOutput = String.format("%-10s %-10s %-15s %-20s\n", 1, "Jisoo", "Good customer service", "");
-		testOutput += String.format("%-10s %-10s %-15s %-20s\n", 2, "Shy Chan", "Items are overpriced", "");
+		testOutput = String.format("%-10s %-10s %-25s %-30s\n", 1, "Jisoo", "Good customer service", "");
+		testOutput += String.format("%-10s %-10s %-25s %-30s\n", 2, "Shy Chan", "Items are overpriced", "");
 	
 		assertEquals("Check that ViewAllFeedbackList has the same output as retrieved from the arraylist", testOutput, allFeedback);
 		
