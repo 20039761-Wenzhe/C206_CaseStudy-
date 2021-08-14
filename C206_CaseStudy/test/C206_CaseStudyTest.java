@@ -36,6 +36,8 @@ public class C206_CaseStudyTest {
 		carList = new ArrayList<Car>();
 
 	}
+	
+	///////////////////////////////////////////////JASMINE/////////////////////////////////////////////////////////////
 	@Test
 	public void testAddCar() {
 		// Car list is not null, so that can add a new Issue
@@ -71,13 +73,18 @@ public class C206_CaseStudyTest {
 		//test if the expected output string same as the list of issues retrieved from the arraylist
 		allCar= C206_CaseStudy.retrieveAllCar(carList);
 
-		testOutput = String.format("%-5d %-15s %-35s %-10s\n", 1, "Zhou Ye", "Cashback not given yet", "Pending");
-		testOutput += String.format("%-5d %-15s %-35s %-10s\n", 2, "Jackey", "Wrong amount charged for the car", "Solved");
+		testOutput = String.format("%-5d %-20s %-15s %-10s\n", 1,"Traxxas Rustler", "Blue", 79);
+		testOutput += String.format("%-5d %-20s %-15s %-10s\n", 2,"Arrma Typhon", "Red", 68);
 	
-		assertEquals("Check that ViewALlIssue has the same output as retrieved from the arraylist", testOutput, allIssue);
+		assertEquals("Check that ViewCar has the same output as retrieved from the arraylist", testOutput, allCar);
 		
 	}
-	///////////////////////////////////////WENZHE/////////////////////////////////////////////////////////////
+	@Test
+	public void testDeleteCar() {
+		// Test if Car list is not null but empty, so that can add a new Issue
+		assertNotNull("Test if there is valid Car arraylist to retrieve from", carList);
+	}
+	///////////////////////////////////////////////WENZHE/////////////////////////////////////////////////////////////
 	@Test
 	public void testAddIssue() {
 		// Issue list is not null, so that can add a new Issue
@@ -172,6 +179,9 @@ public class C206_CaseStudyTest {
 		i2 = null;
 		f1 = null;
 		f2 = null;
+		c1 = null;
+		c2 = null;
+		carList = null;
 		issueList = null;
 		feedbackList = null;
 	}

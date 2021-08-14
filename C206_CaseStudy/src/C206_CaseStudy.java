@@ -152,6 +152,7 @@ public class C206_CaseStudy {
 		System.out.println("4. DISPLAY Appointment Option Menu ");
 		System.out.println("5. Quit");
 	}
+	
 	public static String retrieveAllCar(ArrayList<Car> carList) {
 		// jasmine write code here
 		String output = "";
@@ -193,16 +194,17 @@ public class C206_CaseStudy {
 	
 	public static void deleteCar(ArrayList<Car> carList, int ID) {
 		// jasmine write code here
-		for (Car c : carList) {
-			if(ID==c.getID()) {
-				carList.remove(c);
-				System.out.println("Radio Car ID: "+c.getID()+" Succesfully deleted!");
-			}
-			 if (ID!=c.getID()){
-				System.out.println("Unable to find Car with ID: ' "+ID+" '.");
+		 for (int i = 0; i < carList.size(); i++) {
+	            Car c = carList.get(i);
+				if(ID==c.getID()) {
+					carList.remove(c);
+					System.out.println("Radio Car ID: "+c.getID()+" Succesfully deleted!");
+				}
+				else{
+					System.out.println("Unable to find Car with ID: ' "+ID+" '.");
+				}
 			}
 		}
-	}
 
 	public static String retrieveAllIssue(ArrayList<Issue> issueList) {
         String output = "";
