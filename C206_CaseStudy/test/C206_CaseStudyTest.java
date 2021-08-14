@@ -11,9 +11,12 @@ public class C206_CaseStudyTest {
 	private Issue i2;
 	private Feedback f1;
 	private Feedback f2;
-	
+	private Car c1;
+	private Car c2;
+
 	private ArrayList<Issue> issueList;
 	private ArrayList<Feedback> feedbackList;
+	private ArrayList<Car> carList;
 	
 	public C206_CaseStudyTest() {
 		super();	
@@ -25,10 +28,56 @@ public class C206_CaseStudyTest {
 		i2 = new Issue(2, "Jackey", "Wrong amount charged for the car", "Solved");
 		f1 = new Feedback(1, "Jisoo", "Good customer service", "");
 		f2 = new Feedback(2, "Shy Chan", "Items are overpriced", "");
+		c1= new Car(1,"Traxxas Rustler", "Blue", 79);
+		c2 = new Car(2,"Arrma Typhon", "Red", 68);
 		
 		issueList= new ArrayList<Issue>();
 		feedbackList= new ArrayList<Feedback>();
+		carList = new ArrayList<Car>();
+
 	}
+	@Test
+	public void testAddCar() {
+		// Car list is not null, so that can add a new Issue
+		assertNotNull("Test if there is valid Car arraylist to add to", carList);
+		
+		//Given an empty list, after adding 1 item, the size of the list is 1
+		C206_CaseStudy.carAdded(carList, c1);		
+		assertEquals("Test if that Car arraylist size is 1?", 1, carList.size());
+		
+		//The item just added is as same as the first item of the list
+		assertSame("Test that Car added is same as 1st item of the list?", c1, carList.get(0));
+		
+		//Add another item. test The size of the list is 2?
+		C206_CaseStudy.carAdded(carList, c2);
+		assertEquals("Test that Car arraylist size is 2?", 2, carList.size());
+	}
+	
+	@Test
+	public void testRetrieveAllCar() {
+		// Test if Car list is not null but empty, so that can add a new Car
+		assertNotNull("Test if there is valid Car arraylist to retrieve from", carList);
+		
+		//test if the list of Car retrieved from the CaseStudy is empty
+				String allCar= C206_CaseStudy.retrieveAllCar(carList);
+				String testOutput = "";
+				assertEquals("Check that ViewCar is empty", testOutput, allCar);
+				
+		//Given an empty list, after adding 2 cars, test if the size of the list is 2
+		C206_CaseStudy.carAdded(carList, c1);
+		C206_CaseStudy.carAdded(carList, c2);
+		assertEquals("Test if that Car arraylist size is 2?", 2, carList.size());
+		
+		//test if the expected output string same as the list of issues retrieved from the arraylist
+		allCar= C206_CaseStudy.retrieveAllCar(carList);
+
+		testOutput = String.format("%-5d %-15s %-35s %-10s\n", 1, "Zhou Ye", "Cashback not given yet", "Pending");
+		testOutput += String.format("%-5d %-15s %-35s %-10s\n", 2, "Jackey", "Wrong amount charged for the car", "Solved");
+	
+		assertEquals("Check that ViewALlIssue has the same output as retrieved from the arraylist", testOutput, allIssue);
+		
+	}
+	
 	@Test
 	public void testAddIssue() {
 		// Issue list is not null, so that can add a new Issue
