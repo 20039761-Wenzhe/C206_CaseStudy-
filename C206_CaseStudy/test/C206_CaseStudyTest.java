@@ -100,6 +100,12 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that Car arraylist size is 0", 0, carList.size());
 	}
 	
+	@Test
+	public void testsearchCar() {
+		//Test that the arraylist is not null.
+		assertNotNull("Check if there is a valid Car arrayList", carList);
+	}
+	
 	///////////////////////////////////////////////WENZHE/////////////////////////////////////////////////////////////
 	@Test
 	public void testAddIssue() {
