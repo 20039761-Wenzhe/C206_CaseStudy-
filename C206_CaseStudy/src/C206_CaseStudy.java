@@ -397,14 +397,31 @@ public class C206_CaseStudy {
 		accountList.remove(mobile - 1);
 		System.out.println("Account " + mobile + " removed");
 	}
+	
 	public static void viewAppointment(ArrayList<Appointment> appList) {
 		// wenjie write code here
+		String output = String.format("%-35s %-10s\n", "Name", "Time");
+		int list = 0;
+		for(int i =0; i < appList.size(); i++) {
+			list = list +1;
+			output += String.format(" %-10s %-15s\n", list,appList.get(i).getApName(), appList.get(i).getTime());
+			}
+		System.out.println(output);
 	}
+	
 	public static void addAppointment(ArrayList<Appointment> appList) {
 		// wenjie write code here
+		String name = Helper.readString("Name > ");
+		String time = Helper.readString("Enter Appointment day> ");
+		appList.add(new Appointment(name, time));
+		System.out.println("New appointment added!");
 	}
+	
 	public static void deleteAppointment(ArrayList<Appointment> appList) {
 		// wenjie write code here
+		String names = Helper.readString("Enter name to delete > ");
+		appList.remove(names);
+		System.out.println("Appointment of " + names + "removed");
 	}
 	
 	
