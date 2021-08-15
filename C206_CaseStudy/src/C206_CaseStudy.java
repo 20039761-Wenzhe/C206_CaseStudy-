@@ -97,7 +97,8 @@ public class C206_CaseStudy {
 
                 }
                 if(input == 4) {
-                	replyFeedback(feedbackList);
+                	int no = inputReply(feedbackList);
+                	C206_CaseStudy.replyFeedback(feedbackList,  no);
                 }
         
             }
@@ -301,12 +302,16 @@ public class C206_CaseStudy {
             }
         }
     }
-
-    public static void replyFeedback(ArrayList < Feedback > feedbackList) {
+    public static int inputReply(ArrayList<Feedback>feedbackList) {
         String output = String.format("%-10s %-10s %-25s %-30s\n", "No. ", "Name", "Feedback", "Reply");
         output += retrieveAllFeedback(feedbackList);
         System.out.println(output);
         int no = Helper.readInt("Enter feedback no. to reply to > ");
+        return no;
+    }
+
+    public static void replyFeedback(ArrayList < Feedback > feedbackList, int no) {
+
         String output1 = String.format("%-10s %-10s %-25s %-30s\n", "No. ", "Name", "Feedback", "Reply");
         Boolean replied = false;
         for (int i = 0; i < feedbackList.size(); i++) {

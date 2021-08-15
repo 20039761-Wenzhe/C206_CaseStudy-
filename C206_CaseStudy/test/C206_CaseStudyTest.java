@@ -207,6 +207,14 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that feedback arraylist size is 0", 0, feedbackList.size());
 		
 }
+	public void testReplyFeedback() {
+		//Test that the arraylist is not null
+		assertNotNull("Check if there is a valid feedback arrayList", feedbackList);
+		
+		//Add 1 feedback and reply to the feedback, check if the expected output string same as feedback added after replying
+		C206_CaseStudy.addFeedback(feedbackList, f1);
+		C206_CaseStudy.replyFeedback(feedbackList);
+	}
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	@After
