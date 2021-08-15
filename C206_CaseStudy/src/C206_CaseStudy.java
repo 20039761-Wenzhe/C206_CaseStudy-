@@ -327,7 +327,7 @@ public class C206_CaseStudy {
         String output = String.format("%-10s %-10s %-25s %-30s\n", "No. ", "Name", "Feedback", "Reply");
         output += retrieveAllFeedback(feedbackList);
         System.out.println(output);
-        int id = Helper.readInt("Enter Feedback No. to delete > ");
+        int id = Helper.readInt("Enter Feedback No. to delete  > ");
         return id;
     }
 
