@@ -165,12 +165,48 @@ public class C206_CaseStudyTest {
 		assertEquals("Check that ViewAllFeedbackList has the same output as retrieved from the arraylist", testOutput, allFeedback);
 		
 	}
+	@Test
 	public void testDeleteIssue() {
-		// Test if Issue list is not null but empty, so that can add a new Issue
-		assertNotNull("Test if there is valid Issue arraylist to retrieve from", issueList);
+		//Test that the arraylist is not null
+		assertNotNull("Test if there is a valid issue arrayList", issueList);
+
+		// After adding 1 item and deleting it, test if the size of the list is 0
+		C206_CaseStudy.addIssue(issueList, i1);
+		C206_CaseStudy.deleteIssue(issueList, i1.getId());
+		assertEquals("Test that issue arraylist size is 0", 0, issueList.size());
 		
-	
-	}
+		// After adding 2 item and deleting the first one, test if the size of the list is 1
+		C206_CaseStudy.addIssue(issueList, i1);
+		C206_CaseStudy.addIssue(issueList, i2);
+		C206_CaseStudy.deleteIssue(issueList, i1.getId());
+		assertEquals("Test that issue arraylist size is 1", 1, issueList.size());
+		
+		//After deleting the last issue, check that the size of the list is 0
+		C206_CaseStudy.deleteIssue(issueList, i2.getId());
+		assertEquals("Test that issue arraylist size is 0", 0, issueList.size());
+		
+}
+	@Test
+	public void testDeleteFeedback() {
+		//Test that the arraylist is not null
+		assertNotNull("Check if there is a valid feedback arrayList", feedbackList);
+
+		// After adding 1 item and deleting it, test if the size of the list is 0
+		C206_CaseStudy.addFeedback(feedbackList, f1);
+		C206_CaseStudy.deleteFeedback(feedbackList, f1.getId());
+		assertEquals("Test that feedback arraylist size is 0", 0, feedbackList.size());
+		
+		// After adding 2 item and deleting the first one, test if the size of the list is 1
+		C206_CaseStudy.addFeedback(feedbackList, f1);
+		C206_CaseStudy.addFeedback(feedbackList, f2);
+		C206_CaseStudy.deleteFeedback(feedbackList, f1.getId());
+		assertEquals("Test that feedback arraylist size is 1", 1, feedbackList.size());
+		
+		//After deleting the last feedback, check that the size of the list is 0
+		C206_CaseStudy.deleteFeedback(feedbackList, f2.getId());
+		assertEquals("Test that feedback arraylist size is 0", 0, feedbackList.size());
+		
+}
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	@After
