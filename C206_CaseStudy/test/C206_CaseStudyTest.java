@@ -225,7 +225,7 @@ public class C206_CaseStudyTest {
 }
 	@Test
 	public void testReplyFeedback() {
-		//Test that the arraylist is not null
+		//Test that the arraylist is not null.
 		assertNotNull("Check if there is a valid feedback arrayList", feedbackList);
 	}
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
