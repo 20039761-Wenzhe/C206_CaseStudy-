@@ -15,6 +15,8 @@ public class C206_CaseStudy {
 	private static ArrayList<Issue> issueList = new ArrayList<Issue>();
 	private static ArrayList<Account> accountList = new ArrayList<Account>();
 	private static ArrayList<Appointment> appList = new ArrayList<Appointment>();
+	
+	
 
 
 	public static void main(String[] args) {
