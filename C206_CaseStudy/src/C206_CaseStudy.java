@@ -267,6 +267,9 @@ public class C206_CaseStudy {
     }
 
     public static int inputDelete(ArrayList<Issue> issueList) {
+        String output = String.format("%-5s %-15s %-35s %-10s\n", "No.", "Name", "Issue", "Status");
+        output += retrieveAllIssue(issueList);
+        System.out.println(output);
         int id = Helper.readInt("Enter Issue No. to delete > ");
         return id;
     }
