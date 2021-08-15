@@ -302,34 +302,31 @@ public class C206_CaseStudy {
         }
     }
 
-    public static void replyFeedback(ArrayList<Feedback> feedbackList) {
+    public static void replyFeedback(ArrayList < Feedback > feedbackList) {
         String output = String.format("%-10s %-10s %-25s %-30s\n", "No. ", "Name", "Feedback", "Reply");
         output += retrieveAllFeedback(feedbackList);
         System.out.println(output);
         int no = Helper.readInt("Enter feedback no. to reply to > ");
         String output1 = String.format("%-10s %-10s %-25s %-30s\n", "No. ", "Name", "Feedback", "Reply");
+        Boolean replied = false;
         for (int i = 0; i < feedbackList.size(); i++) {
             Feedback fb = feedbackList.get(i);
             if (no == fb.getId()) {
                 output1 += String.format("%-10d %-10s %-25s %-30s\n", feedbackList.get(i).getId(),
-                        feedbackList.get(i).getName(), feedbackList.get(i).getFeedback(),
-                        feedbackList.get(i).getReply());
+                    feedbackList.get(i).getName(), feedbackList.get(i).getFeedback(),
+                    feedbackList.get(i).getReply());
                 System.out.println(output1);
                 String reply = Helper.readString("Enter reply > ");
-                for (Feedback fr : feedbackList) {
-                    if (no == fr.getId()) {
-                        fr.setReply(reply);
-                    System.out.println("Reply added!");
-                    }
-                }
-            } else {
-                System.out.println("Feedback ID cannot beeeeee found");
+                feedbackList.get(i).setReply(reply);
+                System.out.println("Reply added!");
+                replied = true;
+
             }
         }
-
+        if (replied == false) {
+            System.out.println("Feedback ID cannot be found");
+        }
     }
-    
-    
 
 	public static void viewAccount(ArrayList<Account> accountList) {
 		// miguel write code here
