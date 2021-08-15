@@ -81,9 +81,25 @@ public class C206_CaseStudyTest {
 	}
 	@Test
 	public void testDeleteCar() {
-		// Test if Car list is not null but empty, so that can add a new Issue
+		// Test if Car list is not null but empty, so that can add a new Car
 		assertNotNull("Test if there is valid Car arraylist to retrieve from", carList);
+	
+		// After adding 1 item and deleting it, test if the size of the list is 0
+		C206_CaseStudy.carAdded(carList, c1);
+		C206_CaseStudy.deleteCar(carList, c1.getID());
+		assertEquals("Test that Car arraylist size is 0", 0, carList.size());
+				
+		// After adding 2 item and deleting the first one, test if the size of the list is 1
+		C206_CaseStudy.carAdded(carList, c1);
+		C206_CaseStudy.carAdded(carList, c2);
+		C206_CaseStudy.deleteCar(carList, c1.getID());
+		assertEquals("Test that Car arraylist size is 1", 1, carList.size());
+		
+		//After deleting the last feedback, check that the size of the list is 0
+		C206_CaseStudy.deleteCar(carList, c2.getID());
+		assertEquals("Test that Car arraylist size is 0", 0, carList.size());
 	}
+	
 	///////////////////////////////////////////////WENZHE/////////////////////////////////////////////////////////////
 	@Test
 	public void testAddIssue() {
