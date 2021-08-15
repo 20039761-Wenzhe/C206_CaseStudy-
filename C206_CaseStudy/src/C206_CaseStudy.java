@@ -32,6 +32,7 @@ public class C206_CaseStudy {
 					System.out.println("1. View Car");
 					System.out.println("2. Add Car");
 					System.out.println("3. Delete Car");
+					System.out.println("4. Search Car");
 					Helper.line(40, "-");
 					
 					
@@ -47,6 +48,10 @@ public class C206_CaseStudy {
 						int ID = deleteInput(carList);
 						C206_CaseStudy.deleteCar(carList, ID);
 					}			
+					else if(input==4) {
+						int ID = searchInput(carList);
+						C206_CaseStudy.searchCar(carList, ID);
+					}
 			
 			} else if (option == 2) {
                 System.out.println("1. View");
@@ -177,8 +182,16 @@ public class C206_CaseStudy {
 		String name = Helper.readString("Name > ");
 		String colour = Helper.readString("Enter Colour > ");
 		int price = Helper.readInt("Enter Price > ");
-		Car car1 = new Car(ID, name, colour, price);
-		return car1;
+		if (price>0) {
+			Car car1 = new Car(ID, name, colour, price);
+			return car1;
+		}
+		else {
+			System.out.println("Price must be above $0!");
+			price = Helper.readInt("Enter Price > ");
+			Car car1 = new Car(ID, name, colour, price);
+			return car1;
+		}
 	}
 	
 	public static void carAdded(ArrayList<Car> carList, Car car1) {
@@ -206,7 +219,29 @@ public class C206_CaseStudy {
 				}
 			}
 		}
-
+	
+	public static int searchInput(ArrayList<Car>carList) {
+		//jasmine
+		int ID = Helper.readInt("Enter ID of Radio Car to search > ");
+		return ID;
+	}
+	
+	public static void searchCar(ArrayList<Car> carList, int ID) {
+		// jasmine write code here
+		 for (int i = 0; i < carList.size(); i++) {
+	            Car c = carList.get(i);
+				if(ID==c.getID()) {
+					String output = String.format("%-5s %-20s %-15s %-10s\n", "ID", "Name", "Colour", "Price");
+					output += retrieveAllCar(carList);
+					System.out.println(output);
+				}
+				else{
+					System.out.println("Unable to find Car with ID: ' "+ID+" '.");
+				}
+			}
+		}
+	
+	
 	public static String retrieveAllIssue(ArrayList<Issue> issueList) {
         String output = "";
         for (int i = 0; i < issueList.size(); i++) {
