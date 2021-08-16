@@ -424,6 +424,29 @@ public class C206_CaseStudy {
 		System.out.println("Appointment of " + names + "removed");
 	}
 	
+	public static void updateAppointment(ArrayList <Appointment> update, int no) {
+
+        String output1 = String.format("%-10s %-10s %-25s %-30s\n", "No. ", "Name", "Appointment");
+        Boolean updateApp= false;
+        for (int i = 0; i < appList.size(); i++) {
+            Appointment app = appList.get(i);
+            if (no == app.getApName()) {
+                output1 += String.format("%-10d %-10s %-25s %-30s\n", appList.get(i).getApName(),
+                    appList.get(i).getApName(), appList.get(i).getApName(),
+                    appList.get(i).getTime());
+                System.out.println(output1);
+                String reply = Helper.readString("Enter appointment > ");
+                appList.get(i).setTime(output1);
+                System.out.println("Appointment updated!");
+                updateApp = true;
+
+            }
+        }
+        if (updateApp == false) {
+            System.out.println("Appointment does not exist!");
+        }
+    }
+	
 	
 	
 	
